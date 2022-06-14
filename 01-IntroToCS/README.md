@@ -40,7 +40,7 @@ En el caso de que tanto el interruptor A como el interruptor B estén cerrados, 
 
 Una alternativa, sería colocar dos interruptores de forma paralela de forma tal que si cierro uno, pero mantengo el otro abierto, la energía tiene un camino alternativo por donde pasar.
 
-![OR Operator](../_src/assets/01-IntroToCS/OR.png)
+![OR Operator](../_src/assets/01-IntroToCS/OR.pn+g)
 
 En este caso, si cierro el interruptor A pero mantengo el interruptor B abierto, la lámpara se prende igual. Esto se debe a que la energía de la batería pasa por el camino cerrado hasta alcanzar la lámpara. Análogo es el caso en el que el interruptor A está abierto y el interruptor B cerrado.
 
@@ -85,44 +85,44 @@ En la escuela nos enseñaron a sumar con números decimales pero, las computador
 Por ejemplo, si quisiéramos sumar 19+24 sabemos que la suma de 9+4 = 13, por lo tanto en el resultado final en la unidad nos queda un 3 y debemos “llevarnos” la decena. Luego, para la decena debemos sumar 1 + 2 + 1 = 4. Obteniendo como resultado final 43.
 En el Half Adder, ese rol de acarreo lo hace la puerta lógica AND mientras que el XOR efectúa la suma. Si quisiéramos trasladar el mismo ejemplo ya mencionado, en primer lugar debemos conocer cual es el valor de 19 y 24 en binario. Más adelante veremos cómo hacer dicha transformación, pero por ahora, confíen que 19 = 10011 y 24 = 11000.
 
-1 | 0   | 0     | 1   | 1
--- | --- | ----- | ----| ---
-1| 1 | 0  |0 |0
+     1  | 0   | 0     | 1   | 1
+     -- | --- | ----- | ----| ---
+     1  | 1   | 0     | 0   | 0
 
 Comenzando de derecha a izquierda. 1 AND 0 = 0 por lo tanto NO acarreo, y por otro lado debo hacer 1 XOR 0 = 1. El segundo, es análogo
 
-1 | 0   | 0     | 1   | 1
--- | --- | ----- | ----| ---
-1| 1 | 0  |0 |0
-| |   |1 |1
+     1  | 0   | 0     | 1   | 1
+     -- | --- | ----- | ----| ---
+     1  | 1   | 0     | 0   | 0
+        |     |       | 1   | 1
 
 0 AND 0 = 0, NO acarreo. Luego, 0 XOR 0 = 0. Por lo tanto,
 
-1 | 0   | 0     | 1   | 1
--- | --- | ----- | ----| ---
-1| 1 | 0  |0 |0
-|1 |  0 |1 |1
+     1  | 0   | 0     | 1   | 1
+     -- | --- | ----- | ----| ---
+     1  | 1   | 0     | 0   | 0
+        | 1   | 0     | 1   | 1
 
 Llegamos al último caso, 1 AND 1 = 1, por lo tanto hay acarreo.
 
-1|1 | 0   | 0     | 1   | 1
---|-- | --- | ----- | ----| ---
-|1| 1 | 0  |0 |0
-||1 |  0 |1 |1
+1  | 1  | 0   | 0     | 1   | 1
+-- | -- | --- | ----- | ----| ---
+   | 1  | 1   | 0     | 0   | 0
+   |    | 1   | 0     | 1   | 1
 
 1 XOR 1 = 0
 
-1|1 | 0   | 0     | 1   | 1
---|-- | --- | ----- | ----| ---
-|1| 1 | 0  |0 |0
-|0|1 |  0 |1 |1
+1  | 1  | 0   | 0     | 1   | 1
+-- | -- | --- | ----- | ----| --
+   | 1  | 1   | 0     | 0   | 0
+   | 0  | 1   | 0     | 1   | 1
 
 Se completa con 0s. Por lo tanto, resta resolver 1 AND 0 = 0, NO hay acarreo. 1 XOR 0 = 1.
 
-1|1 | 0   | 0     | 1   | 1
---|-- | --- | ----- | ----| ---
-0|1| 1 | 0  |0 |0
-1|0|1 |  0 |1 |1
+1  | 1  | 0   | 0     | 1   | 1
+-- | -- | --- | ----- | ----| ---
+0  | 1  | 1   | 0     | 0   | 0
+1  | 0  | 1   | 0     | 1   | 1
 
 101011 = 43
 
