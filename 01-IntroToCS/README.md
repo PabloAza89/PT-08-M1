@@ -85,44 +85,44 @@ En la escuela nos enseñaron a sumar con números decimales pero, las computador
 Por ejemplo, si quisiéramos sumar 19+24 sabemos que la suma de 9+4 = 13, por lo tanto en el resultado final en la unidad nos queda un 3 y debemos “llevarnos” la decena. Luego, para la decena debemos sumar 1 + 2 + 1 = 4. Obteniendo como resultado final 43.
 En el Half Adder, ese rol de acarreo lo hace la puerta lógica AND mientras que el XOR efectúa la suma. Si quisiéramos trasladar el mismo ejemplo ya mencionado, en primer lugar debemos conocer cual es el valor de 19 y 24 en binario. Más adelante veremos cómo hacer dicha transformación, pero por ahora, confíen que 19 = 10011 y 24 = 11000.
 
-     1  | 0   | 0     | 1   | 1
-     -- | --- | ----- | ----| ---
-     1  | 1   | 0     | 0   | 0
+      1   | 0   | 0   | 1   | 1
+      --- | --- | --- | --- | ---
+      1   | 1   | 0   | 0   | 0
 
 Comenzando de derecha a izquierda. 1 AND 0 = 0 por lo tanto NO acarreo, y por otro lado debo hacer 1 XOR 0 = 1. El segundo, es análogo
 
-     1  | 0   | 0     | 1   | 1
-     -- | --- | ----- | ----| ---
-     1  | 1   | 0     | 0   | 0
-        |     |       | 1   | 1
+      1   | 0   | 0   | 1   | 1
+      --- | --- | --- | --- | ---
+      1   | 1   | 0   | 0   | 0
+          |     |     | 1   | 1
 
 0 AND 0 = 0, NO acarreo. Luego, 0 XOR 0 = 0. Por lo tanto,
 
-     1  | 0   | 0     | 1   | 1
-     -- | --- | ----- | ----| ---
-     1  | 1   | 0     | 0   | 0
-        | 1   | 0     | 1   | 1
+      1   | 0   | 0   | 1   | 1
+      --- | --- | --- | --- | ---
+      1   | 1   | 0   | 0   | 0
+          | 1   | 0   | 1   | 1
 
 Llegamos al último caso, 1 AND 1 = 1, por lo tanto hay acarreo.
 
-1  | 1  | 0   | 0     | 1   | 1
--- | -- | --- | ----- | ----| ---
-   | 1  | 1   | 0     | 0   | 0
-   |    | 1   | 0     | 1   | 1
+1   | 1   | 0   | 0   | 1   | 1
+--- | --- | --- | --- | --- | ---
+    | 1   | 1   | 0   | 0   | 0
+    |     | 1   | 0   | 1   | 1
 
 1 XOR 1 = 0
 
-1  | 1  | 0   | 0     | 1   | 1
--- | -- | --- | ----- | ----| --
-   | 1  | 1   | 0     | 0   | 0
-   | 0  | 1   | 0     | 1   | 1
+1   | 1   | 0   | 0   | 1   | 1
+--- | --- | --- | --- | --- | ---
+    | 1   | 1   | 0   | 0   | 0
+    | 0   | 1   | 0   | 1   | 1
 
 Se completa con 0s. Por lo tanto, resta resolver 1 AND 0 = 0, NO hay acarreo. 1 XOR 0 = 1.
 
-1  | 1  | 0   | 0     | 1   | 1
--- | -- | --- | ----- | ----| ---
-0  | 1  | 1   | 0     | 0   | 0
-1  | 0  | 1   | 0     | 1   | 1
+1   | 1   | 0   | 0   | 1   | 1
+--- | --- | --- | --- | --- | ---
+0   | 1   | 1   | 0   | 0   | 0
+1   | 0   | 1   | 0   | 1   | 1
 
 101011 = 43
 
@@ -155,9 +155,9 @@ Ahora es momento de entender cómo transformar un número binario en un número 
 Por ejemplo:
 Supongamos 10101, comenzando de derecha a izquierda, cada 1 o 0 será multiplicado por 2^n en donde n describe la posición en el que se encuentra, siendo el más derecho, la posición 0. El resultado final será la sumatoria de todos ellos.
 
- 1 | 0   | 1     | 0   | 1
--- | --- | ----- | ----| ---
-2^4| 2^3 |  2^2  | 2^1 | 2^0
+ 1  |  0  |  1  |  0  |  1
+--- | --- | --- | --- | ---
+2^4 | 2^3 | 2^2 | 2^1 | 2^0
 
 Por lo tanto:
 1x2^4 + 0x2^3 + 1x2^2 + 0x2^1 + 1x2^0 = 16 + 0 + 4 + 0 + 1 = 21

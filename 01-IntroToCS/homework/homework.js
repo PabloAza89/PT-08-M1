@@ -13,6 +13,7 @@ function BinarioADecimal(num) {
   //return qwe;
   
 }
+console.log(BinarioADecimal('1010'))
 
 function DecimalABinario(num) {
   let binary = [];
