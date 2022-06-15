@@ -138,15 +138,15 @@ En este caso existen 7 símbolos o signos para representar todos los números po
 
 Por ejemplo:
 
-CXVII = cien + diez + cinco + uno + uno
+CXVII = cien + diez + cinco + uno + uno // 117
 
-MCMV = mil  + (mil - cien) + cinco
+MCMV = mil  + (mil - cien) + cinco // 1905
 
 ### Sistemas Posicionales
 
 Un sistema posicional es aquel en donde cada dígito posee un valor que depende de su posición relativa, la cual está determinada por la base, número de dígitos necesarios para escribir cualquier número. En el caso de un sistema decimal, base 10, ya que el número de dígitos es 10, de 0 a 9.
 
-Por lo tanto, además del número de unidades que representa, considerado en forma asilado, tiene un significado o peso distinto según la posición que ocupa en el grupo de caracteres del que forma parte.
+Por lo tanto, además del número de unidades que representa, considerado en forma aislado, tiene un significado o peso distinto según la posición que ocupa en el grupo de caracteres del que forma parte.
 
 ### Binario <> Decimal
 
