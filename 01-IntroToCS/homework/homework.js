@@ -16,10 +16,15 @@ function BinarioADecimal(num) {
 function DecimalABinario(num) {
   let binary = [];
   let result = num;
-    do {
+    while (result !== 0) {
       binary.unshift(result % 2);
       result = Math.floor(result / 2);
-    } while (result !== 0);
+    }
+
+  /*  do {
+      binary.unshift(result % 2);
+      result = Math.floor(result / 2);
+    } while (result !== 0);*/
   return binary.join('');
   //let asd = num.toString(2);
   //return asd;
