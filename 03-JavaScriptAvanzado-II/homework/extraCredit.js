@@ -26,26 +26,31 @@ console.log('hola'.repeatify(3));
 //   Que representan cada lado del triángulo. `type` debe ser `Triangle`.
 // * Agregá un nuevo método al prototipo llamado `getPerimeter`.
 
-let shape = {
-    type: 'Triangle',
-    getType: function() {
+function Shape(type) {
+    this.type = type;
+}
+
+class Triangle extends Shape {
+    constructor(a,b,c, type = "Triangle"){
+    super(type);
+    this.a = a;
+    this.b = b;
+    this.c = c;
+    
+    }
+    getPerimeter = function() {
+        return this.a + this.b + this.c
+    }
+    getType = function() {
         return this.type;
     }
 }
-
-function Triangle(a,b,c) {
-    a = a;
-    b = b;
-    c = c;
-}
-
-Triangle.prototype.shape = function() {}
 
 // Probá tu solución con el siguiente código:
 var t = new Triangle(1, 2, 3);
 console.log(t instanceof Triangle)
 // true
-console.log(shape.prototype.isPrototypeOf(t));
+console.log(Shape.prototype.isPrototypeOf(t));
 // true
 console.log(t.getPerimeter());
 // 6
