@@ -34,17 +34,33 @@ class Shape {
         return this.type;
     }
     getPerimeter() {
-        if (this.type === 'Triangle') {
+        if (this.type === '"Triangle"') {
             return this.a + this.b + this.c;
         }
-        if (this.type === 'Circle') {
-            return this.number * 2 * Math.PI;
-        }    
+        if (this.type === '"Circle"') {
+            return 2 * Math.PI * this.number;
+        }
+        if (this.type === '"Square"')  {
+            return this.number * 4;
+        }
+    }
+    getArea() {
+        if (this.type === '"Triangle"') {
+            let s = (this.a + this.b + this.c) / 2;
+            let h = Math.Square((s * (s - this.a) * (s - this.b) * (s - this.c)));
+            return h;
+        }
+        if (this.type === '"Circle"') {
+            return 2 * Math.PI * this.number;
+        }
+        if (this.type === '"Square"')  {
+            return this.number * 4;
+        }        
     }
 }
 
 class Triangle extends Shape {
-    constructor(a,b,c, type = 'Triangle'){
+    constructor(a,b,c, type = '"Triangle"'){
         super(type);
         this.a = a;
         this.b = b;
@@ -62,17 +78,18 @@ console.log(t.getPerimeter());
 // 6
 console.log(t.getType());
 // "Triangle"
+console.log(t.getArea());
+// 
 
 // * Ahora creá un nuevo constructor que herede de `Shape`, llamado `Circle`. 
 //   Implementalo de tal modo que puedas calcular su perímetro en la función `getPerimeter`.
 
 class Circle extends Shape {
-    constructor(number, type = 'Circle') {
+    constructor(number, type = '"Circle"') {
         super(type)
         this.number = number;
     }
 }
-
 
 //Probá tu solución con el siguiente código:
 var c = new Circle(2);
@@ -84,3 +101,28 @@ console.log(c.getPerimeter());
 // 12.566370614359172
 console.log(c.getType());
 // "Circle"
+console.log(c.getArea());
+// 
+
+// * Creá una última `Shape` llamada `Square`.
+// * Agregá el método `getArea` de todas las `Shape`s.
+
+class Square extends Shape {
+    constructor(number, type = '"Square"') {
+        super(type)
+        this.number = number;
+    }
+}
+
+//Probá tu solución con el siguiente código:
+var s = new Square(3);
+console.log(s instanceof Square);
+// true
+console.log(Shape.prototype.isPrototypeOf(s));
+// true
+console.log(s.getPerimeter());
+// 12
+console.log(s.getType());
+// "Square"
+console.log(s.getArea());
+// 
