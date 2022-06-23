@@ -47,14 +47,14 @@ class Shape {
     getArea() {
         if (this.type === '"Triangle"') {
             let s = (this.a + this.b + this.c) / 2;
-            let h = Math.Square((s * (s - this.a) * (s - this.b) * (s - this.c)));
-            return h;
+            let h = (2 / this.a) * Math.sqrt(s * (s - this.a) * (s - this.b) * (s - this.c));
+            return (this.a * h) / 2;
         }
         if (this.type === '"Circle"') {
-            return 2 * Math.PI * this.number;
+            return Math.PI * Math.pow(this.number, 2);
         }
         if (this.type === '"Square"')  {
-            return this.number * 4;
+            return Math.pow(this.number, 2);
         }        
     }
 }
@@ -69,17 +69,17 @@ class Triangle extends Shape {
 }
 
 // Probá tu solución con el siguiente código:
-var t = new Triangle(1, 2, 3);
+var t = new Triangle(1, 2.5, 3);
 console.log(t instanceof Triangle)
 // true
 console.log(Shape.prototype.isPrototypeOf(t));
 // true
 console.log(t.getPerimeter());
-// 6
+// 6.5
 console.log(t.getType());
 // "Triangle"
 console.log(t.getArea());
-// 
+// 1.1709371246996996
 
 // * Ahora creá un nuevo constructor que herede de `Shape`, llamado `Circle`. 
 //   Implementalo de tal modo que puedas calcular su perímetro en la función `getPerimeter`.
@@ -102,7 +102,7 @@ console.log(c.getPerimeter());
 console.log(c.getType());
 // "Circle"
 console.log(c.getArea());
-// 
+// 12.566370614359172
 
 // * Creá una última `Shape` llamada `Square`.
 // * Agregá el método `getArea` de todas las `Shape`s.
@@ -125,4 +125,4 @@ console.log(s.getPerimeter());
 console.log(s.getType());
 // "Square"
 console.log(s.getArea());
-// 
+// 9
