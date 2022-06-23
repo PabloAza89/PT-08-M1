@@ -28,18 +28,23 @@ console.log('hola'.repeatify(3));
 
 class Shape {
     constructor(type) {
-        this.type = 'Triangle';
+        this.type = type;
     }
     getType() {
         return this.type;
     }
     getPerimeter() {
-        return this.a + this.b + this.c;
+        if (this.type === 'Triangle') {
+            return this.a + this.b + this.c;
+        }
+        if (this.type === 'Circle') {
+            return this.number * 2 * Math.PI;
+        }    
     }
 }
 
 class Triangle extends Shape {
-    constructor(a,b,c,type){
+    constructor(a,b,c, type = 'Triangle'){
         super(type);
         this.a = a;
         this.b = b;
@@ -57,3 +62,25 @@ console.log(t.getPerimeter());
 // 6
 console.log(t.getType());
 // "Triangle"
+
+// * Ahora creá un nuevo constructor que herede de `Shape`, llamado `Circle`. 
+//   Implementalo de tal modo que puedas calcular su perímetro en la función `getPerimeter`.
+
+class Circle extends Shape {
+    constructor(number, type = 'Circle') {
+        super(type)
+        this.number = number;
+    }
+}
+
+
+//Probá tu solución con el siguiente código:
+var c = new Circle(2);
+console.log(c instanceof Circle);
+// true
+console.log(Shape.prototype.isPrototypeOf(c));
+// true
+console.log(c.getPerimeter());
+// 12.566370614359172
+console.log(c.getType());
+// "Circle"
