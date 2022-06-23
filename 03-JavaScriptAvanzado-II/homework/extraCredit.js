@@ -22,19 +22,19 @@ console.log('hola'.repeatify(3));
 // ### Shapes
 //
 // * Crea un objeto llamado `Shape` que tenga una propiedad `type` y un método `getType`.
-// * Ahora defini una función `Triangle` cuyo prototipo sea `shape`. Los objetos creados con `Triangle` deberían tener tres propiedades: `a`, `b` y `c`. 
+// * Ahora defini una función `Triangle` cuyo prototipo sea `Shape`. Los objetos creados con `Triangle` deberían tener tres propiedades: `a`, `b` y `c`. 
 //   Que representan cada lado del triángulo. `type` debe ser `Triangle`.
 // * Agregá un nuevo método al prototipo llamado `getPerimeter`.
 
 class Shape {
-    constructor() {
+    constructor(type) {
         this.type = 'Triangle';
     }
     getType() {
         return this.type;
     }
     getPerimeter() {
-        return this.a + this.b + this.c
+        return this.a + this.b + this.c;
     }
 }
 
