@@ -126,3 +126,5 @@ console.log(s.getType());
 // "Square"
 console.log(s.getArea());
 // 9
+
+
