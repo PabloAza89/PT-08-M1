@@ -6,13 +6,13 @@ function getSeat(letter, number) {
         [{type: 'ECONOMIC', booked: true}, {type: 'NORMAL', booked: true}, {type: 'NORMAL', booked: true}, {type: 'ECONOMIC', booked: false}],
         [{type: 'ECONOMIC', booked: false}, {type: 'ECONOMIC', booked: true}, {type: 'ECONOMIC', booked: false}, {type: 'ECONOMIC', booked: false}]
       ];
-
+      
     const numberRow = getRowNumber(letter);
     const layoutRows = layout[numberRow];
     const seat = layoutRows[number];
     return seat;
 } 
-
+//console.log(getSeat('C', 0))
 function checkSeatStatus(row, number) {
     if (typeof row !== 'string') {
         throw new TypeError('First parameter is not a string');
