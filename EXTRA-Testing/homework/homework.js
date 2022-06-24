@@ -35,7 +35,41 @@ function book(row, number) { // A1 // E3
     const seat = getSeat(row, number); // E3 --> 4[3] (false)
     seat.booked = true; // layout[4][3] = true; (false --> true)
     return `Seat in ${row}${number} successfully booked`; // assigned
-}  
+}
+
+function summary() {
+    let totalSeat = 0;
+    for (let i = 0 ; i < layout.length; i++) {
+        totalSeat += layout[i].length;
+    }
+    let totalReserved = 0;
+    let totalFree = 0;
+    for (let i = 0 ; i < layout.length; i++) {
+        for (let j = 0 ; j < layout[i].length; j++) {
+            if (layout[i][j].booked === true) {
+                ++totalReserved;
+            } else {
+                ++totalFree;
+            }
+        }
+    }
+    let cashInDrawer = 0;
+    for (let i = 0 ; i < layout.length; i++) {
+        for (let j = 0 ; j < layout[i].length; j++) {
+            if (layout[i][j].booked === true && layout[i][j].type === 'VIP') {
+                cashInDrawer += 600;
+            }
+            if (layout[i][j].booked === true && layout[i][j].type === 'NORMAL') {
+                cashInDrawer += 450;
+            }
+            if (layout[i][j].booked === true && layout[i][j].type === 'ECONOMIC') {
+                cashInDrawer += 300;
+            }
+        }
+    }
+    return 'Total seats: ' + totalSeat + ',' + ' Reserved seats: ' + totalReserved + ',' + ' Free seats: ' + totalFree + ', ' + 'Cash in drawer: $' + cashInDrawer + '.';
+}
+console.log(summary())
 
 module.exports = {
     getSeat,
