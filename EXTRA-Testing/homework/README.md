@@ -257,7 +257,7 @@ ___
 
 ### CODE FIVE
 
-Vamos a reutilizar la función `getRowNumber` dentro de `getSeatStatus` para saber hasta que posición de la matriz debemos iterar. Y luego accederemos a la columna a partir del número que nos pasen por parámetro y cuando estemos en el asiento indicado debremos ver si su propiedad `booked` es `true` o `false`.
+Vamos a reutilizar la función `getRowNumber` dentro de `getSeatStatus` para saber hasta que posición de la matriz debemos iterar. Y luego accederemos a la columna a partir del número que nos pasen por parámetro y cuando estemos en el asiento indicado deberemos ver si su propiedad `booked` es `true` o `false`.
 
 <details>
   <summary>ANSWER CODE</summary>

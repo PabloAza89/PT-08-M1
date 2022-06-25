@@ -11,13 +11,13 @@ function rowCheckerAndGetRowNumber(row) {
     if (row === '') throw new TypeError('First parameter must not be empty');
     if (row.length > 1) throw new TypeError('First parameter must be only one letter');
     if ((parseInt(row, 10)).toString() !== 'NaN') throw new TypeError('First parameter is not a letter');
-    if (row !== 'A' && row !== 'B' && row !== 'C' && row !== 'D' && row !== 'E')  throw new TypeError('First parameter must be a letter between A and E (inclusive)');
+    if (row !== 'A' && row !== 'B' && row !== 'C' && row !== 'D' && row !== 'E')  throw new TypeError('First parameter must be an uppercase letter between A and E (inclusive)');
     return row.charCodeAt(0) - 65;
 }
 
 function numberChecker(number) {
     if (typeof number !== 'number') throw new TypeError('Second parameter is not a number');
-    if ((number).toString().length > 1) throw new TypeError('Second parameter must be only one number');
+    if ((number).toString().length > 1) throw new TypeError('Second parameter must be only one positive number betweet 0 and 3 (inclusive)');
     if (number < 0 || number > 3 ) throw new TypeError('Second parameter must be a number betweet 0 and 3 (inclusive)');
     return number;
 }
@@ -58,7 +58,7 @@ function summary() {
             }
         }
     }
-    return 'Summary: Total seats: ' + totalSeat + ',' + ' Reserved seats: ' + totalReserved + ',' + ' Free seats: ' + totalFree + ', ' + 'Cash in drawer: $' + cashInDrawer + '.';
+    return 'Summary: Total seats: ' + totalSeat + ', Reserved seats: ' + totalReserved + ', Free seats: ' + totalFree + ', Cash in drawer: $' + cashInDrawer + '.';
 }
 
 console.log(rowCheckerAndGetRowNumber('A'))

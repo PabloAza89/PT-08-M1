@@ -5,9 +5,6 @@ const {
 } = require('../homework');
 
 describe('rowCheckerAndGetRowNumber', () => {
-    it('should return 2 if the letter given is a C', () => {
-        expect(rowCheckerAndGetRowNumber('C')).toBe(2);
-    });
     it('should throw an TypeError if first parameter is not a letter', () => {
         expect(() => rowCheckerAndGetRowNumber(3)).toThrow(TypeError);
     });
@@ -17,8 +14,11 @@ describe('rowCheckerAndGetRowNumber', () => {
     it('should throw an TypeError if first parameter is more than one letter', () => {
         expect(() => rowCheckerAndGetRowNumber('AB')).toThrow(TypeError);
     });
-    it('should throw an TypeError if first parameter is not a letter between A and E (inclusive)', () => {
+    it('should throw an TypeError if first parameter is not an uppercase letter between A and E (inclusive)', () => {
         expect(() => rowCheckerAndGetRowNumber('G')).toThrow(TypeError);
+    });
+    it('should return 2 if the letter given is a C', () => {
+        expect(rowCheckerAndGetRowNumber('C')).toBe(2);
     });
 });
 
@@ -26,7 +26,7 @@ describe('numberChecker', () => {
     it('should throw an TypeError if second parameter is not a number', () => {
         expect(() => numberChecker('A')).toThrow(TypeError);
     });
-    it('should throw an TypeError if second parameter is more than one number', () => {
+    it('should throw an TypeError if second parameter is more than one number or it is negative', () => {
         expect(() => numberChecker(22)).toThrow(TypeError);
     });   
     it('should throw an TypeError if second parameter is a number that is not betweet 0 and 3 (inclusive)', () => {
