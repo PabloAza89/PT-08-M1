@@ -1,8 +1,24 @@
 const {
-    checkSeatStatus, 
+    rowAndNumberChecker,
     getRowNumber,
-    book
+    checkSeatStatus,
+    book,
 } = require('../homework');
+
+describe('rowAndNumberChecker', () => {
+    it('should return 2 if the letter given is a C', () => {
+        expect(getRowNumber('C')).toBe(2);
+    });
+    it('should throw an TypeError if first parameter is not a letter', () => {
+        expect(() => getRowNumber(3)).toThrow(TypeError);
+    });
+    it('should throw an TypeError if first parameter is empty', () => {
+        expect(() => getRowNumber('')).toThrow(TypeError);
+    });
+    it('should throw an TypeError if first parameter is more than one letter', () => {
+        expect(() => getRowNumber('AB')).toThrow(TypeError);
+    });
+});
 
 describe('checkSeatStatus', () => {
     it('checkSeatStatus is a function', () => {
@@ -15,15 +31,6 @@ describe('checkSeatStatus', () => {
         expect(checkSeatStatus('E', 3)).toBe(false);
     });
 });
-  
-describe('getRowNumber', () => {
-    it('should return 1 if the letter given is an A', () => {
-        expect(getRowNumber('A')).toBe(0);
-    });
-    it('should return 3 if the letter given is a C', () => {
-        expect(getRowNumber('C')).toBe(2);
-    });
-});
 
 describe('book', () => {
     it('should return "Seat in XX successfully booked" if the given seat is not booked', () => {
@@ -32,7 +39,11 @@ describe('book', () => {
     it('should return "Seat in XX is already booked" if the given seat is already booked', () => {
         expect(book('A',1)).toBe('Seat in A1 is already booked');
     });
-  });
+});
+  
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-const layout = [ // LETTER/ROW v // NUMBER >
+const layout = [
     [{type: 'VIP', booked: false}, {type: 'VIP', booked: true}, {type: 'VIP', booked: true}, {type: 'VIP', booked: false}],
     [{type: 'NORMAL', booked: false}, {type: 'VIP', booked: true}, {type: 'VIP', booked: false}, {type: 'NORMAL', booked: false}],
     [{type: 'NORMAL', booked: false}, {type: 'NORMAL', booked: true}, {type: 'NORMAL', booked: true}, {type: 'NORMAL', booked: false}],
@@ -6,35 +6,30 @@ const layout = [ // LETTER/ROW v // NUMBER >
     [{type: 'ECONOMIC', booked: false}, {type: 'ECONOMIC', booked: true}, {type: 'ECONOMIC', booked: false}, {type: 'ECONOMIC', booked: false}]
   ];
 
-function getRowNumber(letter) {
-    return letter.charCodeAt(0) - 65; // A --> 0
+function rowCheckerAndGetRowNumber(row) {
+    if (typeof row !== 'string') throw new TypeError('First parameter is not a string');
+    if (row === '') throw new TypeError('First parameter must not be empty');
+    if (row.length > 1) throw new TypeError('First parameter must be only one letter');
+    if ((parseInt(row, 10)).toString() !== 'NaN') throw new TypeError('First parameter is not a letter');
+    return row.charCodeAt(0) - 65;
 }
 
-function getSeat(letter, number) {
-    const numberRow = getRowNumber(letter); // A1 // A --> 0 
-    const layoutRows = layout[numberRow]; // layout[0]
-    const seat = layoutRows[number]; // layout[0][1] 
-    return seat; // true
-} 
-
-function checkSeatStatus(row, number) { // A1 // ROW === LETTER
-    if (typeof row !== 'string') {
-        throw new TypeError('First parameter is not a string');
-    }    
-    if (typeof number !== 'number') {
-        throw new TypeError('Second parameter is not a number');
-    }
-    const seat = getSeat(row, number); // A1
-    return seat.booked; // TRUE // layout[0][1].booked
+function numberChecker(number) {
+    if (typeof number !== 'number') throw new TypeError('Second parameter is not a number');
+    if ((number).toString().length > 1) throw new TypeError('Second parameter must be only one number');
+    return number;
 }
 
-function book(row, number) { // A1 // E3
-    if (checkSeatStatus(row,number)) { // A1(TRUE)
-        return `Seat in ${row}${number} is already booked`;
-    }    
-    const seat = getSeat(row, number); // E3 --> 4[3] (false)
-    seat.booked = true; // layout[4][3] = true; (false --> true)
-    return `Seat in ${row}${number} successfully booked`; // assigned
+function checkSeatStatus(row, number) {
+    if (rowCheckerAndGetRowNumber(row) >= 0 && numberChecker(number) >= 0)
+    return layout[rowCheckerAndGetRowNumber(row)][number].booked;
+}
+
+function book(row, number) {
+    if (rowCheckerAndGetRowNumber(row) >= 0 && numberChecker(number) >= 0)
+        if (checkSeatStatus(row,number)) return `Seat in ${row}${number} is already booked`;
+        layout[rowCheckerAndGetRowNumber(row)][number].booked = true; 
+        return `Seat in ${row}${number} successfully booked`;
 }
 
 function summary() {
@@ -67,13 +62,19 @@ function summary() {
             }
         }
     }
-    return 'Total seats: ' + totalSeat + ',' + ' Reserved seats: ' + totalReserved + ',' + ' Free seats: ' + totalFree + ', ' + 'Cash in drawer: $' + cashInDrawer + '.';
+    return 'Summary: Total seats: ' + totalSeat + ',' + ' Reserved seats: ' + totalReserved + ',' + ' Free seats: ' + totalFree + ', ' + 'Cash in drawer: $' + cashInDrawer + '.';
 }
+
+console.log(rowCheckerAndGetRowNumber('A'))
+console.log(numberChecker(1));
+console.log(rowCheckerAndGetRowNumber('A'))
+console.log(checkSeatStatus('A', 1))
+console.log(book('A', 1))
 console.log(summary())
 
 module.exports = {
-    getSeat,
+    
+   
     checkSeatStatus,
-    getRowNumber,
-    book
+    book,
 }
