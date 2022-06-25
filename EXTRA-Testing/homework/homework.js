@@ -11,25 +11,21 @@ function rowCheckerAndGetRowNumber(row) {
     if (row === '') throw new TypeError('First parameter must not be empty');
     if (row.length > 1) throw new TypeError('First parameter must be only one letter');
     if ((parseInt(row, 10)).toString() !== 'NaN') throw new TypeError('First parameter is not a letter');
+    if (row !== 'A' && row !== 'B' && row !== 'C' && row !== 'D' && row !== 'E')  throw new TypeError('First parameter must be a letter between A and E (inclusive)');
     return row.charCodeAt(0) - 65;
 }
 
 function numberChecker(number) {
     if (typeof number !== 'number') throw new TypeError('Second parameter is not a number');
     if ((number).toString().length > 1) throw new TypeError('Second parameter must be only one number');
+    if (number < 0 || number > 3 ) throw new TypeError('Second parameter must be a number betweet 0 and 3 (inclusive)');
     return number;
 }
 
-function checkSeatStatus(row, number) {
-    if (rowCheckerAndGetRowNumber(row) >= 0 && numberChecker(number) >= 0)
-    return layout[rowCheckerAndGetRowNumber(row)][number].booked;
-}
-
 function book(row, number) {
-    if (rowCheckerAndGetRowNumber(row) >= 0 && numberChecker(number) >= 0)
-        if (checkSeatStatus(row,number)) return `Seat in ${row}${number} is already booked`;
-        layout[rowCheckerAndGetRowNumber(row)][number].booked = true; 
-        return `Seat in ${row}${number} successfully booked`;
+    if (layout[rowCheckerAndGetRowNumber(row)][numberChecker(number)].booked) return `Seat in ${row}${number} is already booked`;
+    layout[rowCheckerAndGetRowNumber(row)][numberChecker(number)].booked = true; 
+    return `Seat in ${row}${number} successfully booked`;
 }
 
 function summary() {
@@ -67,14 +63,11 @@ function summary() {
 
 console.log(rowCheckerAndGetRowNumber('A'))
 console.log(numberChecker(1));
-console.log(rowCheckerAndGetRowNumber('A'))
-console.log(checkSeatStatus('A', 1))
 console.log(book('A', 1))
 console.log(summary())
 
 module.exports = {
-    
-   
-    checkSeatStatus,
+    rowCheckerAndGetRowNumber,
+    numberChecker,
     book,
 }

@@ -1,35 +1,37 @@
 const {
-    rowAndNumberChecker,
-    getRowNumber,
-    checkSeatStatus,
+    rowCheckerAndGetRowNumber,
+    numberChecker,
     book,
 } = require('../homework');
 
-describe('rowAndNumberChecker', () => {
+describe('rowCheckerAndGetRowNumber', () => {
     it('should return 2 if the letter given is a C', () => {
-        expect(getRowNumber('C')).toBe(2);
+        expect(rowCheckerAndGetRowNumber('C')).toBe(2);
     });
     it('should throw an TypeError if first parameter is not a letter', () => {
-        expect(() => getRowNumber(3)).toThrow(TypeError);
+        expect(() => rowCheckerAndGetRowNumber(3)).toThrow(TypeError);
     });
     it('should throw an TypeError if first parameter is empty', () => {
-        expect(() => getRowNumber('')).toThrow(TypeError);
+        expect(() => rowCheckerAndGetRowNumber('')).toThrow(TypeError);
     });
     it('should throw an TypeError if first parameter is more than one letter', () => {
-        expect(() => getRowNumber('AB')).toThrow(TypeError);
+        expect(() => rowCheckerAndGetRowNumber('AB')).toThrow(TypeError);
+    });
+    it('should throw an TypeError if first parameter is not a letter between A and E (inclusive)', () => {
+        expect(() => rowCheckerAndGetRowNumber('G')).toThrow(TypeError);
     });
 });
 
-describe('checkSeatStatus', () => {
-    it('checkSeatStatus is a function', () => {
-        expect(typeof checkSeatStatus).toBe('function');
+describe('numberChecker', () => {
+    it('should throw an TypeError if second parameter is not a number', () => {
+        expect(() => numberChecker('A')).toThrow(TypeError);
     });
-    it('should return true if the given seat defined by row and column is booked', () => {
-        expect(checkSeatStatus('A', 1)).toBe(true);
-    });
-    it('should return false if the given seat defined by row and column is not booked', () => {
-        expect(checkSeatStatus('E', 3)).toBe(false);
-    });
+    it('should throw an TypeError if second parameter is more than one number', () => {
+        expect(() => numberChecker(22)).toThrow(TypeError);
+    });   
+    it('should throw an TypeError if second parameter is a number that is not betweet 0 and 3 (inclusive)', () => {
+        expect(() => numberChecker(6)).toThrow(TypeError);
+    }); 
 });
 
 describe('book', () => {
