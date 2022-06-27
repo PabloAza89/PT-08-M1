@@ -1,34 +1,32 @@
 const {
   checkNumber,
+  checkString,
+  checkObject,
+  checkArray,
+  toBeNull,
 } = require('./matchers');
 
-describe.only('Tests that will pass', () => {
-  it('should pass if exact match', () => {
+describe('Tests that will pass', () => {
+  it('should pass if exact match number', () => {
     expect(checkNumber(3)).toBe(3);
-    expect(string).toBe('Franco');
   });
-  it('should pass if recursively match (object)', () => {
-    expect(obj).toEqual({name: 'Franco', age: 27});
+  it('should pass if exact match string', () => {
+    expect(checkString('Franco')).toBe('Franco');
   });
-  it('should pass if recursively match (array)', () => {
-    expect(array).toEqual([1,2,3,4,5]);
-  });
-})
+});
 
 describe('Tests that will not pass', () => {
   it('should fail if not exact match (object)', () => {
-    const obj = {name: 'Franco', age: 27};
-    expect(obj).toBe({name: 'Franco', age: 27});
+    expect(checkObject({name: 'Franco', age: 27})).toEqual({name: 'Franco', age: 27});
   });
   it('should fail if not exact match (array)', () => {
-    const array = [1,2,3,4,5];
-    expect(array).toBe([1,2,3,4,5]);
+    expect(checkArray([1,2,3,4,5])).toEqual([1,2,3,4,5]);
   });
 })
 
-describe('Extra matchers', () => {
+xdescribe('Extra matchers', () => {
     it('toBeNull', () => {
-      expect(null).toBeNull();
+      expect(toBeNull()).toBeNull();
       // expect(undefined).toBeNull();
     });
     it('toBeUndefined', () => {

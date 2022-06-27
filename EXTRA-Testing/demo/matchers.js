@@ -1,22 +1,22 @@
 function checkNumber(number) {
-    
     return number;
 }
-console.log(checkNumber(3));
-const string = 'Franco';
-const obj = {name: 'Franco', age: 27};
-const array = [1,2,3,4,5];
 
+function checkString(string) {
+    return string;
+}
 
+function checkObject(object) {
+    return object;
+}
 
+function checkArray(array) {
+    return array;
+}
 
-
-
-
-
-
-
-
+function toBeNull(res) {
+    return res;
+}
 
 
 
@@ -24,4 +24,8 @@ const array = [1,2,3,4,5];
 
 module.exports = {
     checkNumber,
+    checkString,
+    checkObject,
+    checkArray,
+    toBeNull,
 }
