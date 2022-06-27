@@ -4,6 +4,7 @@ const {
   checkObject,
   checkArray,
   toBeNull,
+  toBeUndefined,
 } = require('./matchers');
 
 describe('Tests that will pass', () => {
@@ -24,14 +25,12 @@ describe('Tests that will not pass', () => {
   });
 })
 
-xdescribe('Extra matchers', () => {
+describe('Extra matchers', () => {
     it('toBeNull', () => {
-      expect(toBeNull()).toBeNull();
-      // expect(undefined).toBeNull();
+      expect(toBeNull(null)).toBeNull();
     });
     it('toBeUndefined', () => {
-      expect(undefined).toBeUndefined();
-      // expect(null).toBeUndefined();
+      expect(toBeUndefined(undefined)).toBeUndefined();
     });
     it('toBeDefined', () => {
       expect(2).toBeDefined();
@@ -43,9 +42,8 @@ xdescribe('Extra matchers', () => {
       expect({}).toBeDefined();
       expect({a: 1}).toBeDefined();
       expect(null).toBeDefined();
-      // expect(undefined).toBeDefined();
+      expect(undefined).not.toBeDefined();
     });
-    // toBeFalsy --> opposite
     it('toBeTruthy', () => {
       expect(true).toBeTruthy();
       expect(2).toBeTruthy();
@@ -54,13 +52,12 @@ xdescribe('Extra matchers', () => {
       expect([1,2,3]).toBeTruthy();
       expect({}).toBeTruthy();
       expect({a: 1}).toBeTruthy();
-      // expect(0).toBeTruthy();
-      // expect('').toBeTruthy();
-      // expect(undefined).toBeTruthy();
-      // expect(null).toBeTruthy();
+      expect(0).not.toBeTruthy();
+      expect('').not.toBeTruthy();
+      expect(undefined).not.toBeTruthy();
+      expect(null).not.toBeTruthy();
     });
     it('toBeCloseTo', () => {
-      // expect(0.1 + 0.2).toEqual(0.3);
       expect(0.1 + 0.2).toBeCloseTo(0.3);
       // expect(0.11).toBeCloseTo(0.1);
       expect(0.11).toBeCloseTo(0.1, 1);

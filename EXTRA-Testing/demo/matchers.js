@@ -6,6 +6,8 @@ function checkString(string) {
     return string;
 }
 
+//////////////////////////////////////
+
 function checkObject(object) {
     return object;
 }
@@ -14,9 +16,25 @@ function checkArray(array) {
     return array;
 }
 
-function toBeNull(res) {
-    return res;
+//////////////////////////////////////
+
+function toBeNull(itsNull) {
+    return itsNull;
 }
+
+function toBeUndefined(undef) {
+    return undef;
+}
+
+//////////////////////////////////////
+
+
+
+
+
+
+
+
 
 
 
@@ -28,4 +46,5 @@ module.exports = {
     checkObject,
     checkArray,
     toBeNull,
+    toBeUndefined,
 }
