@@ -32,15 +32,15 @@ function nFactorial(n) {
   // fibo   = 0, 1, 1, 2, 3, 5, 8, 13, 21, 34,
   // n      = 0  1  2  3  4  5  6  7   8   9
 
-  function nFibonacci(n) {
-    let arr = [0, 1];
-    if (n === 0) {return arr[0]};
-    if (n === 1) {return arr[1]};
-    let number = nFibonacci(n - 1) + nFibonacci(n - 2)
-    if (number > 0) {
-        return number;
-    }
-    return nFibonacci(n)
+function nFibonacci(n) {
+  let arr = [0, 1];
+  if (n === 0) {return arr[0]};
+  if (n === 1) {return arr[1]};
+  let number = nFibonacci(n - 1) + nFibonacci(n - 2)
+  if (number > 0) {
+    return number;
+  }
+  return nFibonacci(n)
 }
 
 /*
