@@ -75,17 +75,26 @@ Stack.prototype.add = function () {
 
 //BinarioADecimal('10')).toBe(2);
 //BinarioADecimal('111')).toBe(7);
-//DecimalABinario(4)).toBe('100');
-//DecimalABinario(7)).toBe('111');
+//BinarioADecimal('10101')).toBe(21);
 
-function BinarioADecimal(num) {
+//  1  |  0  |  1  |  0  |  1
+// --- | --- | --- | --- | ---
+// 2^4 | 2^3 | 2^2 | 2^1 | 2^0
 
+// Por lo tanto:
+// 1x2^4 + 0x2^3 + 1x2^2 + 0x2^1 + 1x2^0
+//   16  +   0   +   4   +   0   + 1 
+//             = 21
+
+function BinarioADecimal(n) {
+  let pos = parseInt(n, 10);
+  return pos > 0 ? BinarioADecimal(parseInt(n.charAt(0), 10)) : pos;
 }
+
+console.log(BinarioADecimal('10101'))
 
 function DecimalABinario(num) {
-
 }
-
 
 module.exports = {
   BinarioADecimal,
