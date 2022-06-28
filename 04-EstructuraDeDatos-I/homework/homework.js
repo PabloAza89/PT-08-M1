@@ -15,7 +15,20 @@ Como ejercicio adicional y completamente opcional, al terminar de resolver este 
 */
 
 function nFactorial(n) {
+  let number = n - 1
+  if (number > 1) {
+      return nFactorial(number) * n;
+  }
+  return n;
 }
+
+
+  // expect(0).toBe(0);
+  // expect(2).toBe(1);
+  // expect(6).toBe(8);
+  // expect(9).toBe(34);
+  // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ... 
+  // 0  1  2  3  4  5  6  7   8   9
 
 function nFibonacci(n) {
 }
