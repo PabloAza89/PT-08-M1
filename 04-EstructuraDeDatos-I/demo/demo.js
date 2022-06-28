@@ -27,7 +27,7 @@ let parImpar = (numero) => {
     }
 };
 
-//console.log(parImpar(-3)); // error
+// console.log(parImpar(-3)); // error
 // console.log(parImpar(20)); // Par
 // console.log(parImpar(75)); // Impar
 // console.log(parImpar(98)); // Par
@@ -42,15 +42,6 @@ funcion que se llama a si misma => hasta que algo (caso de corte/ base) para la 
         2! = 2x1!
             1! = 1
 */
-// 5! = 5 * 4 * 3 * 2 * 1 = 120
-// 4! = 4 * 3 * 2 * 1 = 24
-// 3! = 3 * 2 * 1 = 6
-  
-//----- Extra Homework ----------------
-// a) Volver a hacer las funciones de binario a decimal (y viceversa) pero usando recursion
-// b) escribe una funcion que reciba un string y lo devuelva dado vuelta ej: Hello => olleH
-// c) escribe una funcion que reciba dos strings (una frase/palabra y una letra) y que devuelva
-// la cantidad de veces que se repite esa letra. ej: 'Javascript', 'a' => 2
   
 //-------------------- SET-------------
   
@@ -74,4 +65,29 @@ function Stack() {
   
 Stack.prototype.add = function () {
 	// agrega un elemento al final
+};
+
+//----- Extra Homework ----------------
+// a) Volver a hacer las funciones de binario a decimal (y viceversa) pero usando recursion
+// b) escribe una funcion que reciba un string y lo devuelva dado vuelta ej: Hello => olleH
+// c) escribe una funcion que reciba dos strings (una frase/palabra y una letra) y que devuelva
+// la cantidad de veces que se repite esa letra. ej: 'Javascript', 'a' => 2
+
+//BinarioADecimal('10')).toBe(2);
+//BinarioADecimal('111')).toBe(7);
+//DecimalABinario(4)).toBe('100');
+//DecimalABinario(7)).toBe('111');
+
+function BinarioADecimal(num) {
+
+}
+
+function DecimalABinario(num) {
+
+}
+
+
+module.exports = {
+  BinarioADecimal,
+  DecimalABinario,
 };
