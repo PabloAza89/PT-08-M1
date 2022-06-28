@@ -21,6 +21,20 @@ function nFactorial(n) {
   return n;
 }
 
+// 5! = 5 * 4 * 3 * 2 * 1 = 120
+// 4! = 4 * 3 * 2 * 1 = 24
+// 3! = 3 * 2 * 1 = 6
+
+// EJERCICIO ADICIONAL
+// function nFactorial(n) {
+//   let res = n;
+//   while (n > 1) {
+//     res *= n - 1;
+//     --n;
+//   }
+//   return res;
+// }
+
 // expect(0).toBe(0);
 // expect(2).toBe(1);
 // expect(6).toBe(8);
@@ -41,6 +55,21 @@ function nFibonacci(n) {
   return nFibonacci(n)
 }
 
+// length = 1  2  3  4  5  6  7  8
+// fibo   = 0, 1, 1, 2, 3, 5, 8, 13, 21, 34,
+// n      = 0  1  2  3  4  5  6  7   8   9
+
+// EJERCICIO ADICIONAL
+// function nFibonacci(n) {
+//   let array = [0, 1];
+//   if (n === 0) {return array[0]};
+//   if (n === 1) {return array[1]};
+//   while (n > array.length - 1) {
+//     array.push(array[array.length - 1] + array[array.length - 2]);
+//   }
+//   return array[array.length - 1];
+// }
+
 /*
 Implementar la clase Queue, sabiendo que es una estructura de tipo FIFO, donde el primer elemento que ingresa es el primero que se quita. Definir los siguientes métodos:
   - enqueue: agrega un valor respetando el orden.
@@ -56,16 +85,16 @@ function Queue() {
 
 Queue.prototype.enqueue = function (value) {
   this.array.unshift(value);
-};
+}
 
 Queue.prototype.dequeue = function () {
   if (this.array.length === 0) {return undefined};
   return this.array.pop();
-};
+}
 
 Queue.prototype.size = function (value) {
   return this.array.length;
-};
+}
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
