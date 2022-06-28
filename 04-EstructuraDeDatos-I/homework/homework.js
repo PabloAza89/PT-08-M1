@@ -10,7 +10,6 @@ Ejemplo: nFibonacci(7) retornará 13, ya que 13 es el dígito que está en la po
 
 Secuencia:  0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ... 
 
-
 Como ejercicio adicional y completamente opcional, al terminar de resolver este problema pueden intentar definir funciones que logren los mismos resultados pero de manera iterativa.
 */
 
@@ -22,15 +21,14 @@ function nFactorial(n) {
   return n;
 }
 
-
-  // expect(0).toBe(0);
-  // expect(2).toBe(1);
-  // expect(6).toBe(8);
-  // expect(9).toBe(34);
-  // 
-  // length = 1  2  3  4  5  6
-  // fibo   = 0, 1, 1, 2, 3, 5, 8, 13, 21, 34,
-  // n      = 0  1  2  3  4  5  6  7   8   9
+// expect(0).toBe(0);
+// expect(2).toBe(1);
+// expect(6).toBe(8);
+// expect(9).toBe(34);
+// 
+// length = 1  2  3  4  5  6
+// fibo   = 0, 1, 1, 2, 3, 5, 8, 13, 21, 34,
+// n      = 0  1  2  3  4  5  6  7   8   9
 
 function nFibonacci(n) {
   let arr = [0, 1];
@@ -53,8 +51,21 @@ Pueden utilizar class o función constructora.
 */
 
 function Queue() {
-
+  this.array = [];
 }
+
+Queue.prototype.enqueue = function (value) {
+  this.array.unshift(value);
+};
+
+Queue.prototype.dequeue = function () {
+  if (this.array.length === 0) {return undefined};
+  return this.array.pop();
+};
+
+Queue.prototype.size = function (value) {
+  return this.array.length;
+};
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
