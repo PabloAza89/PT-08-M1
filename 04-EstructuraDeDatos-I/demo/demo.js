@@ -130,11 +130,12 @@ function BinarioADecimal(bin, exp = 0) {
 // 21 // 10101
 console.log('asd')
 function DecimalABinario(num) {
-  parseInt(num, 10);
-  return (Math.floor(num) / 2 >= 1) ? (Math.floor(num) % 2).toString().concat(DecimalABinario(Math.floor(num / 2)).toString()) : 0;
+  //parseInt(num, 10);
+  //return (num / 2 >= 1) ? (num % 2).toString().concat(DecimalABinario(Math.floor(num / 2)).toString()) : 1;
+  return (num / 2 > 0) ? DecimalABinario(Math.floor(num / 2)).concat((num % 2)) : '';
 }
 
-console.log(DecimalABinario(21));
+console.log(DecimalABinario(27));
 
 
 module.exports = {
