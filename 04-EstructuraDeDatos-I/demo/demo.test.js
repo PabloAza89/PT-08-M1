@@ -3,6 +3,7 @@
 const {
     BinarioADecimal,
     DecimalABinario,
+    reverseString,
 } = require('./demo.js')
 
 describe('BinarioADecimal(num)', function() {
@@ -21,4 +22,13 @@ describe('DecimalABinario(num)', function() {
     it('should return "111"', function() {
       expect(DecimalABinario(7)).toBe('111');
     });
+});
+
+describe('reverseString(string)', function() {
+  it('should return the string "Hello" reversed', function() {
+    expect(reverseString('Hello')).toBe('olleH');
+  });
+  it('should return the string "Bye" reversed', function() {
+    expect(reverseString('Bye ')).toBe('eyB');
+  });
 });
