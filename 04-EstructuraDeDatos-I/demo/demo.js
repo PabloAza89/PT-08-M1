@@ -138,6 +138,49 @@ function twoStrings(string, letter, res = 0, ind = 0) {
 
 console.log(twoStrings('Javascript is great', 'a'))
 
+// EJERCICIO COMPAÑERO
+/* function repetir(frase, letra) {
+  let count = 0;
+  if (frase.length == 0) {
+      return count;
+  }
+  if (frase[0] === letra) {
+      count++;
+  }
+  return count + repetir(frase.slice(1), letra);
+} */
+
+// EJERCICIO COMPAÑERO
+/* function repetir(frase, letra, count = 0) {
+  if (frase.length === 0) {
+      return count;
+  }
+  if (frase[0] === letra) {
+    return repetir(frase.slice(1), letra, ++count);
+  }
+  return repetir(frase.slice(1), letra, count);
+}  */
+
+// EJERCICIO COMPAÑERO
+/* function repetir(frase, letra) {
+  let count = 0;
+  return (frase.length == 0) ? (frase[0] === letra) ? count++ : count : count + repetir(frase.slice(1), letra);
+} */
+
+// EJERCICIO COMPAÑERO
+/* function repetir(frase, letra, count = 0) {
+  return (0 < frase.length) ? (frase[0] === letra) ? repetir(frase.slice(1), letra, ++count) : repetir(frase.slice(1), letra, count) : count;
+}
+ */
+
+// EJERCICIO COMPAÑERO
+/* function repetir(frase, letra) {
+  let count = 0;
+  return (0 < frase.length) ? (frase[0] === letra) ? repetir(frase.slice(1), letra) +  ++count : repetir(frase.slice(1), letra) : count;
+}
+
+console.log(repetir('Javascripta', 'a')); */
+
 module.exports = {
   BinarioADecimal,
   DecimalABinario,
