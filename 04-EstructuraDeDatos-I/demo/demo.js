@@ -108,21 +108,18 @@ console.log(BinarioADecimal('11011'))
 
 // EJERCICIO COMPAÑERO
 /* function binaryToDecimal(binary) {
-<<<<<<< HEAD
 let num = binary;
 if (num.length == 1) {
     return num * 2 ** (num.length - 1);
 }else{
     return num[0] * 2 ** (num.length - 1) + binaryToDecimal(num.slice(1));
 }
-=======
   let num = binary;
   if (num.length == 1) {
       return num * 2 ** (num.length - 1);
   }else{
       return num[0] * 2 ** (num.length - 1) + binaryToDecimal(num.slice(1));
   }
->>>>>>> 63695285073184ba45b616dc321c88a09cafcd73
 }
 console.log(binaryToDecimal('11011')); */
 
@@ -153,32 +150,26 @@ console.log(reverseString('Hello'))
 
 // EJERCICIO COMPAÑERO
 /* function reverse(string) {
-<<<<<<< HEAD
 if (string.length === 1) {
     return string;
 }
 return reverse(string.slice(1)) + string[0];
 }
-=======
   if (string.length === 1) {
       return string;
   }
   return reverse(string.slice(1)) + string[0];
 }
 
->>>>>>> 63695285073184ba45b616dc321c88a09cafcd73
 console.log(reverse('Hello')) */
 
 // EJERCICIO COMPAÑERO
 /* function reverse(string) {
-<<<<<<< HEAD
 return string.length === 1 ? string : reverse(string.slice(1)) + string[0];
 }
-=======
   return string.length === 1 ? string : reverse(string.slice(1)) + string[0];
 }
 
->>>>>>> 63695285073184ba45b616dc321c88a09cafcd73
 console.log(reverse('Hello')) */
 
 //c) escribe una funcion que reciba dos strings (una frase/palabra y una letra) y que devuelva la cantidad de veces que se repite esa letra. ej: 'Javascript', 'a' => 2
@@ -214,18 +205,14 @@ console.log(twoStrings('Javascript is great', 'a'))
 
 // EJERCICIO COMPAÑERO
 /* function repetir(frase, letra) {
-<<<<<<< HEAD
 let count = 0;
 return (frase.length == 0) ? (frase[0] === letra) ? count++ : count : count + repetir(frase.slice(1), letra);
-=======
   let count = 0;
   return (frase.length == 0) ? (frase[0] === letra) ? count++ : count : count + repetir(frase.slice(1), letra);
->>>>>>> 63695285073184ba45b616dc321c88a09cafcd73
 } */
 
 // EJERCICIO COMPAÑERO
 /* function repetir(frase, letra, count = 0) {
-<<<<<<< HEAD
 return (0 < frase.length) ? (frase[0] === letra) ? repetir(frase.slice(1), letra, ++count) : repetir(frase.slice(1), letra, count) : count;
 }
 */
@@ -235,7 +222,6 @@ return (0 < frase.length) ? (frase[0] === letra) ? repetir(frase.slice(1), letra
 let count = 0;
 return (0 < frase.length) ? (frase[0] === letra) ? repetir(frase.slice(1), letra) +  ++count : repetir(frase.slice(1), letra) : count;
 }
-=======
   return (0 < frase.length) ? (frase[0] === letra) ? repetir(frase.slice(1), letra, ++count) : repetir(frase.slice(1), letra, count) : count;
 }
  */
@@ -246,7 +232,6 @@ return (0 < frase.length) ? (frase[0] === letra) ? repetir(frase.slice(1), letra
   return (0 < frase.length) ? (frase[0] === letra) ? repetir(frase.slice(1), letra) +  ++count : repetir(frase.slice(1), letra) : count;
 }
 
->>>>>>> 63695285073184ba45b616dc321c88a09cafcd73
 console.log(repetir('Javascripta', 'a')); */
 
 module.exports = {
