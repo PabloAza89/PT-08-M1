@@ -123,12 +123,12 @@ function DecimalABinario(num) {
 
 // b) escribe una funcion que reciba un string y lo devuelva dado vuelta ej: Hello => olleH
 
-function reverseString(string, pos = 0) {
+/* function reverseString(string, pos = 0) {
   let length = string.length;
   return (pos < string.length ) ? string[length - 1 - pos].concat(reverseString(string, ++pos)) : '';
 }
 
-console.log(reverseString('Hello'))
+console.log(reverseString('Hello')) */
 
 //c) escribe una funcion que reciba dos strings (una frase/palabra y una letra) y que devuelva la cantidad de veces que se repite esa letra. ej: 'Javascript', 'a' => 2
 
