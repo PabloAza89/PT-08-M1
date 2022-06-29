@@ -203,15 +203,6 @@ console.log(twoStrings('Javascript is great', 'a'))
 
 // EJERCICIO COMPAÑERO
 /* function repetir(frase, letra, count = 0) {
-<<<<<<< HEAD
-if (frase.length === 0) {
-    return count;
-}
-if (frase[0] === letra) {
-  return repetir(frase.slice(1), letra, ++count);
-}
-return repetir(frase.slice(1), letra, count);
-=======
   if (frase.length === 0) {
       return count;
   }
@@ -219,7 +210,6 @@ return repetir(frase.slice(1), letra, count);
     return repetir(frase.slice(1), letra, ++count);
   }
   return repetir(frase.slice(1), letra, count);
->>>>>>> 63695285073184ba45b616dc321c88a09cafcd73
 }  */
 
 // EJERCICIO COMPAÑERO
