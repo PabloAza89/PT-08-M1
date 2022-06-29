@@ -96,14 +96,14 @@ Stack.prototype.add = function () {
 //   16  +   0   +   4   +   0   + 1 
 //             = 21
 
-/* function BinarioADecimal(bin, exp = 0) {
+function BinarioADecimal(bin, exp = 0) {
   let pos = bin.length;
   if (exp === pos - 1) {
     return parseInt(bin[exp], 10);
   } 
   return (parseInt(bin[exp], 10) << (--pos - exp)) + BinarioADecimal(bin, ++exp);
 }
-console.log(BinarioADecimal('11011')) */
+// console.log(BinarioADecimal('11011'))
 
 // 21/2 = 10 (resto 1)
 // 10/2 = 5 (resto 0)
@@ -112,31 +112,31 @@ console.log(BinarioADecimal('11011')) */
 // 1/2 = 0 (resto 1)
 // 21 // 10101
 
-/* console.log('asd')
+
 function DecimalABinario(num) {
   //parseInt(num, 10);
   //return (num / 2 >= 1) ? (num % 2).toString().concat(DecimalABinario(Math.floor(num / 2)).toString()) : 1;
   return (num / 2 > 0) ? DecimalABinario(Math.floor(num / 2)).concat((num % 2)) : '';
-} */
+}
 
 // console.log(DecimalABinario(27));
 
 // b) escribe una funcion que reciba un string y lo devuelva dado vuelta ej: Hello => olleH
 
-/* function reverseString(string, pos = 0) {
+function reverseString(string, pos = 0) {
   let length = string.length;
   return (pos < string.length ) ? string[length - 1 - pos].concat(reverseString(string, ++pos)) : '';
 }
 
-console.log(reverseString('Hello')) */
+//console.log(reverseString('Hello'))
 
 //c) escribe una funcion que reciba dos strings (una frase/palabra y una letra) y que devuelva la cantidad de veces que se repite esa letra. ej: 'Javascript', 'a' => 2
 
 function twoStrings(string, letter, res = 0, ind = 0) {
-  return (ind < string.length) ? (string[ind] === letter) ? twoStrings(string, letter, ++res, ++ind) : '';
+  return (ind < string.length) ? (string[ind] === letter) ? twoStrings(string, letter, ++res, ++ind) : twoStrings(string, letter, res, ++ind) : res;
 }
 
-console.log(twoStrings('Javascript', 'a'))
+console.log(twoStrings('Javascript is great', 'a'))
 
 module.exports = {
   BinarioADecimal,

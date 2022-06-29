@@ -41,4 +41,7 @@ describe('twoStrings(string, letter)', function() {
   it('should return "FullStack", "l" => 2', function() {
     expect(twoStrings('FullStack', 'l')).toBe(2);
   });
+  it('should return "Javascript is great", "a" => 3', function() {
+    expect(twoStrings('Javascript is great', 'a')).toBe(3);
+  });
 });
