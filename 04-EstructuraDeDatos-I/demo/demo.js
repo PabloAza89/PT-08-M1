@@ -86,15 +86,56 @@ Stack.prototype.add = function () {
 //   16  +   0   +   4   +   0   + 1 
 //             = 21
 
-function BinarioADecimal(n) {
-  let pos = parseInt(n, 10);
-  return pos > 0 ? BinarioADecimal(parseInt(n.charAt(0), 10)) : pos;
+/* function toDecimal(binary, i = 0) {        
+        let n = binary.length;
+        if (i == n-1)
+            return binary[i] - '0';
+    
+        return ((binary[i] - '0') << (n-1-i)) + toDecimal(binary, i+1);
+    }
+    console.log(toDecimal('10101')) */
+
+/* function toDecimal(binary, i = 0) {        
+        let n = binary.length;
+        if (i === n - 1)
+            return binary[i] - '0';
+    
+        return ((binary[i] - '0') << (--n - i)) + toDecimal(binary, ++i);
+    }
+    console.log(toDecimal('10101')) */
+
+function BinarioADecimal(bin, exp = 0) {
+  let pos = bin.length;
+  if (exp === pos - 1) {
+    return parseInt(bin[exp], 10);
+  } 
+  return (parseInt(bin[exp], 10) << (--pos - exp)) + BinarioADecimal(bin, ++exp);
 }
 
-console.log(BinarioADecimal('10101'))
+//BinarioADecimal('10')).toBe(2);
+//BinarioADecimal('111')).toBe(7);
+//BinarioADecimal('10101')).toBe(21);
+//BinarioADecimal('11011')).toBe(27);
 
+// Por lo tanto:
+// 1x2^4 + 0x2^3 + 1x2^2 + 0x2^1 + 1x2^0
+//   16  +   0   +   4   +   0   + 1 
+//             = 21
+
+// 21/2 = 10 (resto 1)
+// 10/2 = 5 (resto 0)
+// 5/2 = 2 (resto 1)
+// 2/2 = 1 (resto 0)
+// 1/2 = 0 (resto 1)
+// 21 // 10101
+console.log('asd')
 function DecimalABinario(num) {
+  parseInt(num, 10);
+  return (Math.floor(num) / 2 >= 1) ? (Math.floor(num) % 2).toString().concat(DecimalABinario(Math.floor(num / 2)).toString()) : 0;
 }
+
+console.log(DecimalABinario(21));
+
 
 module.exports = {
   BinarioADecimal,

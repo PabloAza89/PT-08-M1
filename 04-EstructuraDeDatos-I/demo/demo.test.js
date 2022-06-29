@@ -2,7 +2,7 @@
 
 const {
     BinarioADecimal,
-    DecimalABinario
+    DecimalABinario,
 } = require('./demo.js')
 
 describe('BinarioADecimal(num)', function() {
