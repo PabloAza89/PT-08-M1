@@ -26,6 +26,7 @@ let parImpar = (numero) => {
       return parImpar(numero - 2);
     }
 };
+console.log(parImpar(2));
 
 // console.log(parImpar(-3)); // error
 // console.log(parImpar(20)); // Par
@@ -103,7 +104,18 @@ function BinarioADecimal(bin, exp = 0) {
   } 
   return (parseInt(bin[exp], 10) << (--pos - exp)) + BinarioADecimal(bin, ++exp);
 }
-// console.log(BinarioADecimal('11011'))
+console.log(BinarioADecimal('11011'))
+
+// EJERCICIO COMPAÑERO
+/* function binaryToDecimal(binary) {
+  let num = binary;
+  if (num.length == 1) {
+      return num * 2 ** (num.length - 1);
+  }else{
+      return num[0] * 2 ** (num.length - 1) + binaryToDecimal(num.slice(1));
+  }
+}
+console.log(binaryToDecimal('11011')); */
 
 // 21/2 = 10 (resto 1)
 // 10/2 = 5 (resto 0)
@@ -119,7 +131,7 @@ function DecimalABinario(num) {
   return (num / 2 > 0) ? DecimalABinario(Math.floor(num / 2)).concat((num % 2)) : '';
 }
 
-// console.log(DecimalABinario(27));
+console.log(DecimalABinario(27));
 
 // b) escribe una funcion que reciba un string y lo devuelva dado vuelta ej: Hello => olleH
 
@@ -128,7 +140,24 @@ function reverseString(string, pos = 0) {
   return (pos < string.length ) ? string[length - 1 - pos].concat(reverseString(string, ++pos)) : '';
 }
 
-//console.log(reverseString('Hello'))
+console.log(reverseString('Hello'))
+
+// EJERCICIO COMPAÑERO
+/* function reverse(string) {
+  if (string.length === 1) {
+      return string;
+  }
+  return reverse(string.slice(1)) + string[0];
+}
+
+console.log(reverse('Hello')) */
+
+// EJERCICIO COMPAÑERO
+/* function reverse(string) {
+  return string.length === 1 ? string : reverse(string.slice(1)) + string[0];
+}
+
+console.log(reverse('Hello')) */
 
 //c) escribe una funcion que reciba dos strings (una frase/palabra y una letra) y que devuelva la cantidad de veces que se repite esa letra. ej: 'Javascript', 'a' => 2
 
