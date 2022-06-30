@@ -11,7 +11,7 @@
     </td>
       <td>
       <a href="https://quiz.soyhenry.com/evaluation/new/606eed05656c8d23c2e60efa">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/HSQuiz.svg/768px-HSQuiz.svg.png" width="100" height="100"/>
+        <img src="https://upload.wikimedievaluationa.org/wikipedia/commons/thumb/1/1f/HSQuiz.svg/768px-HSQuiz.svg.png" width="100" height="100"/>
         <br>
         Hacé click acá completar el quizz teórico de esta lecture.
       </a>
@@ -34,7 +34,7 @@ Básicamente, las listas enlazadas, son una secuencia de nodos enlazados entre e
 Hagamos nuestra primera lista enlazada.
 Como cada nodo puede ser un objeto por sí mismo, vamos a codear dos constructores: el _nodo_ y la _lista_ en si.
 
-El nodo contiene datos y un puntero o un link al siguiente nodo, por defecto el nodo no va a apuntar a ningún otro nodo.
+El nodo contiene datos y un link al siguiente nodo, por defecto el nodo no va a apuntar a ningún otro nodo.
 
 ```javascript
 function Node(data) {
@@ -43,7 +43,7 @@ function Node(data) {
 }
 ```
 
-La clase lista, necesita sólamente un puntero o link que apunte al primer nodo de la lista. Adicionalmente vamos a agregar la propiedad length, para poder saber siempre la longitud de nuestra lista enlazada. Al crear una lista va a estar vacía por o tanto la cabeza es `null` y _length_ es cero.
+La clase lista, necesita sólamente un link que apunte al primer nodo de la lista. Adicionalmente vamos a agregar la propiedad length, para poder saber siempre la longitud de nuestra lista enlazada. Al crear una lista va a estar vacía por o tanto la cabeza es `null` y _length_ es cero.
 
 ```javascript
 function List() {
@@ -64,7 +64,7 @@ Veamos que operaciones podemos hacer en una lista:
 
 ![InsertarTop](../_src/assets/04-EstructuraDeDatos-I/listAdd.gif)
 
-_El orden en el que actualizan los punteros es muy importante. Si actualizan el la cabeza de la lista primero, pierden la lista!!_
+_El orden en el que actualizan los punteros es muy importante. Si actualizan la cabeza primero, pierden la lista!!_
 
 * _Sacar un nodo_:
   * Del principio de la lista.

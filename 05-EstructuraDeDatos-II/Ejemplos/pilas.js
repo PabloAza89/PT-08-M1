@@ -34,8 +34,16 @@ Pila.prototype.print = function() {
     pointer = pointer.next;
   }
 }
+var pp = new Pila()
+pp.push(1)
+pp.push(2)
+pp.push(3)
+pp.push(1)
+pp.push()
+pp.push(1)
+pp.print()
 
-// INVERTIR ARRAYS CON PILAS //
+// INVERTIR ARRAY CON PILA //
 
 function switchArray(arr) {
   var pila = new Pila();
@@ -48,3 +56,5 @@ function switchArray(arr) {
     return vaciar(pila,array);
   }(pila,arr);
 }
+
+console.log(switchArray([1,2,3]))
