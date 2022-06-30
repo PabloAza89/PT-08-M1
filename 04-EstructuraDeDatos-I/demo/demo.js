@@ -78,50 +78,78 @@ Stack.prototype.add = function () {
 //   16  +   0   +   4   +   0   + 1 
 //             = 21
 
-/* function toDecimal(binary, i = 0) {        
-      let n = binary.length;
-      if (i == n-1)
-          return binary[i] - '0';
+// BinarioADecimal('10')).toBe(2);
+// BinarioADecimal('111')).toBe(7);
+// BinarioADecimal('10101')).toBe(21);
+// BinarioADecimal('11011')).toBe(27);
+
+// DESDE INTERNET
+// function toDecimal(binary, i = 0) {        
+//       let n = binary.length;
+//       if (i == n-1)
+//           return binary[i] - '0';
   
-      return ((binary[i] - '0') << (n-1-i)) + toDecimal(binary, i+1);
-  }
-  console.log(toDecimal('10101')) */
+//       return ((binary[i] - '0') << (n-1-i)) + toDecimal(binary, i+1);
+//   }
+//   console.log(toDecimal('10101'))
 
-//BinarioADecimal('10')).toBe(2);
-//BinarioADecimal('111')).toBe(7);
-//BinarioADecimal('10101')).toBe(21);
-//BinarioADecimal('11011')).toBe(27);
+// function binToDec(binary, bin = binary) {
+//   if (bin.length === 0) return 0
+//   return (bin[0] * 2 ** (bin.length - 1)) + binToDec(bin.slice(1))
+// }
 
-// Por lo tanto:
-// 1x2^4 + 0x2^3 + 1x2^2 + 0x2^1 + 1x2^0
-//   16  +   0   +   4   +   0   + 1 
-//             = 21
-
-function BinarioADecimal(bin, exp = 0) {
-let pos = bin.length;
-if (exp === pos - 1) {
-  return parseInt(bin[exp], 10);
-} 
-return (parseInt(bin[exp], 10) << (--pos - exp)) + BinarioADecimal(bin, ++exp);
-}
-console.log(BinarioADecimal('11011'))
+// console.log(binToDec('10101'));
 
 // EJERCICIO COMPAÑERO
-/* function binaryToDecimal(binary) {
-let num = binary;
-if (num.length == 1) {
-    return num * 2 ** (num.length - 1);
-}else{
-    return num[0] * 2 ** (num.length - 1) + binaryToDecimal(num.slice(1));
+// function binaryToDecimal(binary) {
+//   let num = binary;
+//   if (num.length == 1) {
+//       return num * 2 ** (num.length - 1);
+//   }else{
+//       return num[0] * 2 ** (num.length - 1) + binaryToDecimal(num.slice(1));
+//   }
+// }
+
+// console.log(binaryToDecimal('110'));  //6
+
+// EJERCICIO COMPAÑERO
+// function binaryToDecimal(binary) {
+//   let num = binary;
+//   if (num.length !== 0) 
+//     return num[0] * 2 ** (num.length - 1) + binaryToDecimal(num.slice(1));
+//   return 0
+// }
+
+// console.log(binaryToDecimal('10101'));  //6
+
+
+function BinarioADecimal(bin, exp = 0) {
+  let pos = bin.length;
+  if (exp === pos - 1) {
+    return parseInt(bin[exp], 10);
+  } 
+  return (parseInt(bin[exp], 10) << (--pos - exp)) + BinarioADecimal(bin, ++exp);
 }
-  let num = binary;
-  if (num.length == 1) {
-      return num * 2 ** (num.length - 1);
-  }else{
-      return num[0] * 2 ** (num.length - 1) + binaryToDecimal(num.slice(1));
-  }
-}
-console.log(binaryToDecimal('11011')); */
+
+// console.log(BinarioADecimal('11011'))
+
+// EJERCICIO COMPAÑERO
+// function binaryToDecimal(binary) {
+// let num = binary;
+// if (num.length == 1) {
+//     return num * 2 ** (num.length - 1);
+// }else{
+//     return num[0] * 2 ** (num.length - 1) + binaryToDecimal(num.slice(1));
+// }
+//   let num = binary;
+//   if (num.length == 1) {
+//       return num * 2 ** (num.length - 1);
+//   }else{
+//       return num[0] * 2 ** (num.length - 1) + binaryToDecimal(num.slice(1));
+//   }
+// }
+
+// console.log(binaryToDecimal('11011'));
 
 // 21/2 = 10 (resto 1)
 // 10/2 = 5 (resto 0)
@@ -130,14 +158,11 @@ console.log(binaryToDecimal('11011')); */
 // 1/2 = 0 (resto 1)
 // 21 // 10101
 
-
 function DecimalABinario(num) {
-//parseInt(num, 10);
-//return (num / 2 >= 1) ? (num % 2).toString().concat(DecimalABinario(Math.floor(num / 2)).toString()) : 1;
 return (num / 2 > 0) ? DecimalABinario(Math.floor(num / 2)).concat((num % 2)) : '';
 }
 
-console.log(DecimalABinario(27));
+//console.log(DecimalABinario(21));
 
 // b) escribe una funcion que reciba un string y lo devuelva dado vuelta ej: Hello => olleH
 
@@ -148,29 +173,41 @@ return (pos < string.length ) ? string[length - 1 - pos].concat(reverseString(st
 
 console.log(reverseString('Hello'))
 
-// EJERCICIO COMPAÑERO
-/* function reverse(string) {
-if (string.length === 1) {
-    return string;
-}
-return reverse(string.slice(1)) + string[0];
-}
-  if (string.length === 1) {
-      return string;
-  }
-  return reverse(string.slice(1)) + string[0];
-}
-
-console.log(reverse('Hello')) */
+// RESULTADO COMPAÑERO
+// function DecimalaBin(num,suma=[]){
+//   if(num/2 === 0 ) return Math.floor(num / 2);
+//   suma.unshift(num%2) 
+//   //console.log(suma.join(""))
+//   DecimalaBin(Math.floor(num/2),suma)
+//   return suma.join("")
+//    }
 
 // EJERCICIO COMPAÑERO
-/* function reverse(string) {
-return string.length === 1 ? string : reverse(string.slice(1)) + string[0];
-}
-  return string.length === 1 ? string : reverse(string.slice(1)) + string[0];
-}
+// function binarioADecimal(num){
+//   if(num.length===0) return 0;
+//   return binarioADecimal(num.substring(1))+parseInt(num[0])*2**(num.length-1)
+// }
 
-console.log(reverse('Hello')) */
+//console.log(binarioADecimal('10101'))
+
+// EJERCICIO COMPAÑERO
+// function reverse(string) {
+//   if (string.length === 1) {
+//     return string;
+//   }
+//   return reverse(string.slice(1)) + string[0];
+// }
+
+// console.log(reverse('Hello'))
+
+// EJERCICIO COMPAÑERO
+// function reverse(string) {
+// return string.length === 1 ? string : reverse(string.slice(1)) + string[0];
+// }
+//   return string.length === 1 ? string : reverse(string.slice(1)) + string[0];
+// }
+
+// console.log(reverse('Hello'))
 
 //c) escribe una funcion que reciba dos strings (una frase/palabra y una letra) y que devuelva la cantidad de veces que se repite esa letra. ej: 'Javascript', 'a' => 2
 
@@ -181,58 +218,58 @@ return (ind < string.length) ? (string[ind] === letter) ? twoStrings(string, let
 console.log(twoStrings('Javascript is great', 'a'))
 
 // EJERCICIO COMPAÑERO
-/* function repetir(frase, letra) {
-  let count = 0;
-  if (frase.length == 0) {
-      return count;
-  }
-  if (frase[0] === letra) {
-      count++;
-  }
-  return count + repetir(frase.slice(1), letra);
-} */
+// function repetir(frase, letra) {
+//   let count = 0;
+//   if (frase.length == 0) {
+//       return count;
+//   }
+//   if (frase[0] === letra) {
+//       count++;
+//   }
+//   return count + repetir(frase.slice(1), letra);
+// }
 
 // EJERCICIO COMPAÑERO
-/* function repetir(frase, letra, count = 0) {
-  if (frase.length === 0) {
-      return count;
-  }
-  if (frase[0] === letra) {
-    return repetir(frase.slice(1), letra, ++count);
-  }
-  return repetir(frase.slice(1), letra, count);
-}  */
+// function repetir(frase, letra, count = 0) {
+//   if (frase.length === 0) {
+//       return count;
+//   }
+//   if (frase[0] === letra) {
+//     return repetir(frase.slice(1), letra, ++count);
+//   }
+//   return repetir(frase.slice(1), letra, count);
+// } 
 
 // EJERCICIO COMPAÑERO
-/* function repetir(frase, letra) {
-let count = 0;
-return (frase.length == 0) ? (frase[0] === letra) ? count++ : count : count + repetir(frase.slice(1), letra);
-  let count = 0;
-  return (frase.length == 0) ? (frase[0] === letra) ? count++ : count : count + repetir(frase.slice(1), letra);
-} */
+// function repetir(frase, letra) {
+// let count = 0;
+// return (frase.length == 0) ? (frase[0] === letra) ? count++ : count : count + repetir(frase.slice(1), letra);
+//   let count = 0;
+//   return (frase.length == 0) ? (frase[0] === letra) ? count++ : count : count + repetir(frase.slice(1), letra);
+// }
 
 // EJERCICIO COMPAÑERO
-/* function repetir(frase, letra, count = 0) {
-return (0 < frase.length) ? (frase[0] === letra) ? repetir(frase.slice(1), letra, ++count) : repetir(frase.slice(1), letra, count) : count;
-}
-*/
+// function repetir(frase, letra, count = 0) {
+// return (0 < frase.length) ? (frase[0] === letra) ? repetir(frase.slice(1), letra, ++count) : repetir(frase.slice(1), letra, count) : count;
+// }
+
 
 // EJERCICIO COMPAÑERO
-/* function repetir(frase, letra) {
-let count = 0;
-return (0 < frase.length) ? (frase[0] === letra) ? repetir(frase.slice(1), letra) +  ++count : repetir(frase.slice(1), letra) : count;
-}
-  return (0 < frase.length) ? (frase[0] === letra) ? repetir(frase.slice(1), letra, ++count) : repetir(frase.slice(1), letra, count) : count;
-}
- */
+// function repetir(frase, letra) {
+// let count = 0;
+// return (0 < frase.length) ? (frase[0] === letra) ? repetir(frase.slice(1), letra) +  ++count : repetir(frase.slice(1), letra) : count;
+// }
+//   return (0 < frase.length) ? (frase[0] === letra) ? repetir(frase.slice(1), letra, ++count) : repetir(frase.slice(1), letra, count) : count;
+// }
+
 
 // EJERCICIO COMPAÑERO
-/* function repetir(frase, letra) {
-  let count = 0;
-  return (0 < frase.length) ? (frase[0] === letra) ? repetir(frase.slice(1), letra) +  ++count : repetir(frase.slice(1), letra) : count;
-}
+// function repetir(frase, letra) {
+//   let count = 0;
+//   return (0 < frase.length) ? (frase[0] === letra) ? repetir(frase.slice(1), letra) +  ++count : repetir(frase.slice(1), letra) : count;
+// }
 
-console.log(repetir('Javascripta', 'a')); */
+// console.log(repetir('Javascripta', 'a'));
 
 module.exports = {
 BinarioADecimal,
