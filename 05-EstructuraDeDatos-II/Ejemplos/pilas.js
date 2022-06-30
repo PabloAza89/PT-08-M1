@@ -50,11 +50,12 @@ function switchArray(arr) {
   while (arr.length > 0) {
     pila.push(arr.shift());
   }
-  return function vaciar(pila,array) {
+  pila.data;
+  /* return function vaciar(pila,array) {
     if (pila.head == null) return array;
     array.push(pila.pop().data);
     return vaciar(pila,array);
-  }(pila,arr);
+  }(pila,arr); */
 }
 
 console.log(switchArray([1,2,3]))
