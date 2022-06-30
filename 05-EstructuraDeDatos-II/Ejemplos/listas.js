@@ -17,7 +17,7 @@ Lista.prototype.push = function(data) { // Insert Last
 	if (this.point == null) {
 		this.point = newNodo;
 	} else {
-		pointer = this.point;
+		var pointer = this.point;
 		while (pointer.next!=null) {
 			pointer = pointer.next;
 		}
@@ -25,6 +25,20 @@ Lista.prototype.push = function(data) { // Insert Last
 	}
 	this.len++;
 }
+
+/////////// HELPER /////////// 
+
+// function Lista(){
+// 	this.point = null;
+// 	this.len = 0;
+// }
+
+// function Nodo(data) {
+// 	this.data = data;
+// 	this.next = null;
+// }
+
+/////////// HELPER /////////// 
 
 Lista.prototype.insertFirst = function(data) {
 	var newNodo = new Nodo(data);
@@ -37,6 +51,20 @@ Lista.prototype.insertFirst = function(data) {
 	}
 	this.len++;
 }
+
+/////////// HELPER /////////// 
+
+// function Lista(){
+// 	this.point = null;
+// 	this.len = 0;
+// }
+
+// function Nodo(data) {
+// 	this.data = data;
+// 	this.next = null;
+// }
+
+/////////// HELPER /////////// 
 
 Lista.prototype.insert = function(data,pos) {
 	if (this.len < pos) return this.push(data); 
@@ -54,8 +82,22 @@ Lista.prototype.insert = function(data,pos) {
 	pointer.next = newNodo;
 }
 
+/////////// HELPER /////////// 
+
+// function Lista(){
+// 	this.point = null;
+// 	this.len = 0;
+// }
+
+// function Nodo(data) {
+// 	this.data = data;
+// 	this.next = null;
+// }
+
+/////////// HELPER /////////// 
+
 Lista.prototype.print = function() {
-	pointer = this.point;
+	var pointer = this.point;
 	while (pointer.next!=null) {
 		console.log(pointer.data);
 		pointer = pointer.next;
@@ -105,11 +147,11 @@ Lista.prototype.find = function(val) {
 	} 
 }
 
-// var list = new Lista();
+var list = new Lista();
 
-// list.push(1);
-// list.push(2);
-// list.push(3);
-// list.push(4);
+list.push(1);
+list.push(2);
+list.push(3);
+list.push(4);
 
-// list.print()
+list.print();

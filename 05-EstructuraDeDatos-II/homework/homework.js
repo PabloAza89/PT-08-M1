@@ -14,7 +14,7 @@ Implementar la clase LinkedList, definiendo los siguientes métodos:
 */
 
 function LinkedList(array) {
-  this.list = [array],
+  this.list = array,
   add = function(x) {
     this.list.push(x);
   }

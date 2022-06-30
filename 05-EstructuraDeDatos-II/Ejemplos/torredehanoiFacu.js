@@ -80,4 +80,4 @@ function torreDeHanoi(val){
   };
 };
 
-// torreDeHanoi(6);
+//torreDeHanoi(6);

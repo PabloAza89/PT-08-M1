@@ -13,6 +13,8 @@ function minimo(arr) {
   return aux;
 }
 
+console.log(minimo([1,2,3,4,5]))
+
 // MAYOR
 
 function mayor(arr) {
@@ -24,15 +26,19 @@ function mayor(arr) {
   return aux;
 }
 
+console.log(mayor([1,2,3,4,5]))
+
 // TOTAL
 
 function total(arr) {
-  var aux = arr.reduce(function(tot,num){
-    return tot+num;
+  var aux = arr.reduce(function(tot,val){
+    return tot+val;
   })
   console.log('El total es: ', aux);
   return aux;
 }
+
+console.log(total([1,2,3,4,5]))
 
 function totalBis(arr) {
   var aux = 0;
@@ -42,6 +48,8 @@ function totalBis(arr) {
   console.log('El total es: ', aux);
   return aux;
 }
+
+console.log(totalBis([1,2,3,4,5]))
 
 // PROMEDIO
 
@@ -54,6 +62,8 @@ function promedio(arr) {
   return aux/len;
 }
 
+console.log(promedio([1,2,3,4,5]))
+
 function promedioBis(arr) {
   var aux = 0;
   for (var i=0; i<arr.length; i++) {
@@ -62,3 +72,5 @@ function promedioBis(arr) {
   console.log('El promedio es: ',aux/i);
   return aux/i;
 }
+
+console.log(promedioBis([1,2,3,4,5]))

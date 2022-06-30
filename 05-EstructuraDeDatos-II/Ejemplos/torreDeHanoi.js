@@ -16,6 +16,8 @@ Pila.prototype.len = function(){
 	return this._arr.length;
 }
 
+//////////////////////////
+
 function Torre(){
 	this._t1 = new Pila();
 	this._t2 = new Pila();
@@ -39,7 +41,7 @@ Torre.prototype.init = function(n){
  	// Al principio no le paso parametro, por defecto quiero que mueva todos los platos de la primera
  	// Pila hacia la última Pila.
  	if(!disk){
- 		mov = 0;
+ 		var mov = 0;
  		var source = this._t1;
  		var disk = source.len();
  		var dest = this._t3;
@@ -64,4 +66,4 @@ Torre.prototype.init = function(n){
 let torreHanoi = new Torre();
 torreHanoi.init(29).solve();
 
-// console.log(torreHanoi);
+console.log(torreHanoi);
