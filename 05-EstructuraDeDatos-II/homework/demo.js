@@ -24,7 +24,7 @@ function Node(data) {
       this._length++; // 1
       return nodo; // 'se agrego correctamente'
     }
-    // recorrer hasta llegar al ultimo
+    // recorrer hasta llegar al ultimo "next = null"
     while (current.next) {
       current = current.next;
     }

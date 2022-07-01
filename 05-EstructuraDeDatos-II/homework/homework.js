@@ -1,11 +1,10 @@
 "use strict";
 
-const { add } = require("@11ty/eleventy/src/TemplateCache");
-
 /*
 Implementar la clase LinkedList, definiendo los siguientes métodos:
   - add: agrega un nuevo nodo al final de la lista;
   - remove: elimina el último nodo de la lista y retorna su valor (tener en cuenta el caso particular de una lista de un solo nodo y de una lista vacía);
+
   - search: recibe un parámetro y lo busca dentro de la lista, con una particularidad: el parámetro puede ser un valor o un callback. En el primer caso, buscamos un nodo cuyo valor coincida con lo buscado; en el segundo, buscamos un nodo cuyo valor, al ser pasado como parámetro del callback, retorne true. 
   Ejemplo: 
   search(3) busca un nodo cuyo valor sea 3;
@@ -13,24 +12,77 @@ Implementar la clase LinkedList, definiendo los siguientes métodos:
   En caso de que la búsqueda no arroje resultados, search debe retornar null.
 */
 
-function LinkedList(array) {
-  this.list = array,
-  add = function(x) {
-    this.list.push(x);
-  }
-  remove = function() {
-    return this.list.pop();
-  }
-  search = function() {
-  
-  }
+function LinkedList() {
+  this._length = 0;
+  this.head = null;
 }
-/* var asd = new LinkedList('[asd]')
-console.log(asd.list.push()) */
 
 function Node(value) {
-
+  this.value = value;
+  this.next = null;  
 }
+
+LinkedList.prototype.add = function(value) {
+  let node = new Node(value);
+  let current = this.head;
+  if (!current) {
+    this.head = node;
+    this._length++;
+    return node;
+  }
+  switchNodes(current)
+  current.next = node;
+  this._length++;
+  return node;
+}
+
+LinkedList.prototype.print = function() {
+  if (this.head == null) return null;
+  var pointer = this.head;
+  while (pointer != null) {
+    console.log(pointer.data);
+    pointer = pointer.next;
+  }
+}
+
+function switchNodes(arr) {
+  var pila = new Pila();
+  while (arr.length > 0) {
+    pila.push(arr.shift());
+  }
+  pila.data;
+  return function vaciar(pila,array) {
+    if (pila.head == null) return array;
+    array.push(pila.pop().data);
+    return vaciar(pila,array);
+  }(pila,arr);
+}
+
+// var qq = new LinkedList();
+// console.log(qq.add('a'));
+// console.log(qq._length)
+// console.log(qq.head)
+// console.log(qq.next)
+// console.log(LinkedList.head);
+
+LinkedList.prototype.remove = function() { 
+  if (this.head == null) return null;
+  var removed = this.head;
+  while (removed.next) {
+    removed = removed.next;
+  } 
+  
+  this.head = removed
+  this._length-- 
+ 
+  return removed.value;
+}
+
+
+  
+
+LinkedList.prototype.search = function() {
+} 
 
 /*
 Implementar la clase HashTable.

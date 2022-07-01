@@ -51,11 +51,11 @@ function switchArray(arr) {
     pila.push(arr.shift());
   }
   pila.data;
-  /* return function vaciar(pila,array) {
+  return function vaciar(pila,array) {
     if (pila.head == null) return array;
     array.push(pila.pop().data);
     return vaciar(pila,array);
-  }(pila,arr); */
+  }(pila,arr);
 }
 
 console.log(switchArray([1,2,3]))
