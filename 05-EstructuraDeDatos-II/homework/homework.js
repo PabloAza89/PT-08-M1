@@ -30,10 +30,32 @@ LinkedList.prototype.add = function(value) {
     this._length++;
     return node;
   }
-  switchNodes(current)
+  while (current.next) {
+    current = current.next;
+  }
   current.next = node;
   this._length++;
   return node;
+}
+
+LinkedList.prototype.remove = function() { 
+  if (this.head == null) return null;
+  var toPop = this.head;
+
+  if (this.head && !toPop.next) {
+    var poped = toPop;
+    this._length--
+    return poped;
+  } 
+  
+  //current = current.next;
+  //this.head = ct;
+  this._length--
+  return toPop.value;
+  
+  // this.head = current;
+  // this._length--
+  // return current.value;
 }
 
 LinkedList.prototype.print = function() {
@@ -44,42 +66,12 @@ LinkedList.prototype.print = function() {
     pointer = pointer.next;
   }
 }
-
-function switchNodes(arr) {
-  var pila = new Pila();
-  while (arr.length > 0) {
-    pila.push(arr.shift());
-  }
-  pila.data;
-  return function vaciar(pila,array) {
-    if (pila.head == null) return array;
-    array.push(pila.pop().data);
-    return vaciar(pila,array);
-  }(pila,arr);
-}
-
-// var qq = new LinkedList();
-// console.log(qq.add('a'));
-// console.log(qq._length)
-// console.log(qq.head)
-// console.log(qq.next)
-// console.log(LinkedList.head);
-
-LinkedList.prototype.remove = function() { 
-  if (this.head == null) return null;
-  var removed = this.head;
-  while (removed.next) {
-    removed = removed.next;
-  } 
-  
-  this.head = removed
-  this._length-- 
- 
-  return removed.value;
-}
-
-
-  
+var qq = new LinkedList();
+console.log(qq.add(1));
+console.log(qq.add(2));
+console.log(qq.add(3));
+console.log(qq.remove());
+console.log(qq.print());
 
 LinkedList.prototype.search = function() {
 } 

@@ -34,6 +34,8 @@ Pila.prototype.print = function() {
     pointer = pointer.next;
   }
 }
+
+
 var pp = new Pila()
 pp.push(1)
 pp.push(2)
@@ -41,7 +43,7 @@ pp.push(3)
 pp.push(1)
 pp.push()
 pp.push(1)
-pp.print()
+pp.print();
 
 // INVERTIR ARRAY CON PILA //
 

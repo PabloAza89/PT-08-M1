@@ -17,15 +17,12 @@ function Node(data) {
   List.prototype.add = function (elemento) {
     let nodo = new Node(elemento); //  {data: 'Jere', next: null}
     let current = this.head;
-    // si la lista esta vacia
-    if (!current) {
-      // current === null
+    if (!current) { // si la lista esta vacia // current === null
       this.head = nodo; // head: {data: 'Jime', next: null}
       this._length++; // 1
       return nodo; // 'se agrego correctamente'
     }
-    // recorrer hasta llegar al ultimo "next = null"
-    while (current.next) {
+    while (current.next) { // recorrer hasta llegar al ultimo ("next = null")
       current = current.next;
     }
     current.next = nodo;
