@@ -13,13 +13,13 @@ Implementar la clase LinkedList, definiendo los siguientes métodos:
 */
 
 function LinkedList() {
-  this._length = 0;
   this.head = null;
+  this._length = 0;
 }
 
 function Node(value) {
+  this.next = null;
   this.value = value;
-  this.next = null;  
 }
 
 LinkedList.prototype.add = function(value) {
@@ -38,40 +38,41 @@ LinkedList.prototype.add = function(value) {
   return node;
 }
 
+
+
+
+
+
+
+
 LinkedList.prototype.remove = function() { 
-  if (this.head == null) return null;
-  var toPop = this.head;
-
-  if (this.head && !toPop.next) {
-    var poped = toPop;
-    this._length--
-    return poped;
-  } 
+  let current = this.head; 
+  let removed;
+  if (!current) return null;
   
-  //current = current.next;
-  //this.head = ct;
-  this._length--
-  return toPop.value;
-  
-  // this.head = current;
-  // this._length--
-  // return current.value;
-}
-
-LinkedList.prototype.print = function() {
-  if (this.head == null) return null;
-  var pointer = this.head;
-  while (pointer != null) {
-    console.log(pointer.data);
-    pointer = pointer.next;
+  if (!current.next) {
+    removed = current.value;
+    this.head = null;        
+  } else {
+    while (current.next.next) {
+      current = current.next;
+    }
+    removed = current.next.value
+    current.next = null;
   }
+    
+  this._length--
+  return removed;
 }
-var qq = new LinkedList();
-console.log(qq.add(1));
-console.log(qq.add(2));
-console.log(qq.add(3));
-console.log(qq.remove());
-console.log(qq.print());
+
+
+  
+// var qq = new LinkedList();
+// console.log(qq.add(1));
+// console.log(qq.add(2));
+// console.log(qq.add(3));
+// console.log(qq.remove());
+// console.log(qq.print());
 
 LinkedList.prototype.search = function() {
 } 

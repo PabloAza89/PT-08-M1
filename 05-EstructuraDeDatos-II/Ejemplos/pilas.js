@@ -36,14 +36,21 @@ Pila.prototype.print = function() {
 }
 
 
-var pp = new Pila()
-pp.push(1)
-pp.push(2)
-pp.push(3)
-pp.push(1)
-pp.push()
-pp.push(1)
-pp.print();
+var qq = new Pila()
+console.log(qq.push(1));
+console.log(qq.push(2));
+console.log(qq.push(3));
+console.log(qq.pop());
+
+
+
+
+// pp.push(2)
+// pp.push(3)
+// pp.push(1)
+// pp.push()
+// pp.push(1)
+// pp.print();
 
 // INVERTIR ARRAY CON PILA //
 
