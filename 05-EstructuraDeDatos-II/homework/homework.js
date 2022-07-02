@@ -38,13 +38,6 @@ LinkedList.prototype.add = function(value) {
   return node;
 }
 
-
-
-
-
-
-
-
 LinkedList.prototype.remove = function() { 
   let current = this.head; 
   let removed;
@@ -59,8 +52,7 @@ LinkedList.prototype.remove = function() {
     }
     removed = current.next.value
     current.next = null;
-  }
-    
+  } 
   this._length--
   return removed;
 }
