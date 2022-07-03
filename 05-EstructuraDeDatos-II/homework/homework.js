@@ -98,7 +98,7 @@ Ejemplo: supongamos que quiero guardar {instructora: 'Ani'} en la tabla. Primero
 */
 
 function HashTable(bucket) {
-  this.bucket = [];
+  this.bucket = {};
   this.numBuckets = 35;
 }
 
@@ -129,6 +129,7 @@ HashTable.prototype.get = function(clave) {
   let hash = this.hash(clave);
   return this.bucket[hash][clave];
 }
+
 // - hasKey: recibe una clave por parámetro y consulta si ya hay algo almacenado en la tabla con esa clave (retorna un booleano).
 
 HashTable.prototype.hasKey = function(clave) {
