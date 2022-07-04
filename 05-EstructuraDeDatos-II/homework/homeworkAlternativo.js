@@ -1,5 +1,7 @@
 "use strict";
 
+const helpers = require("markdown-it/lib/helpers");
+
 /*
 Implementar la clase LinkedList, definiendo los siguientes métodos:
   - add: agrega un nuevo nodo al final de la lista;
@@ -115,13 +117,56 @@ HashTable.prototype.hash = function(string) {
 
 // - set: recibe el conjunto clave valor (como dos parámetros distintos), hashea la clave invocando al método hash, y almacena todo el conjunto en el bucket correcto.
 
+// HashTable.prototype.set = function(clave, valor) {
+//   if (typeof clave !== 'string') throw new TypeError('Keys must be strings');
+//   let hash = [(this.hash(clave)).toString(), {[clave]: valor}]
+//   this.bucket.add(hash)
+// }
+
 HashTable.prototype.set = function(clave, valor) {
   if (typeof clave !== 'string') throw new TypeError('Keys must be strings');
-  let hash = [(this.hash(clave)).toString(), valor]
-  this.bucket.add(hash)
+  var obj = 'x' + ([this.hash(clave)]).toString();
+  this[obj] = {1:2}
+  console.log(x28)
+
+  // let hash = [(this.hash(clave)).toString(), {[clave]: valor}]
+  // this.bucket.add(hash)
 }
 
+var qq = new HashTable()
+qq.set('key1', 'val1')
+
+// (function() {  
+//   var scope = this;
+
+//   scope.myObject = { asd: 'asd' };
+//   scope.anObjectName = "myObject";
+
+//   console.log(scope.myObject);    
+// }).call({});
+
+// HELPER
+// var anObjectName = "myObject";
+// this[anObjectName] = "myvalue"
+
+// console.log(myObject)
+
 // - get: recibe una clave por parámetro, y busca el valor que le corresponde en el bucket correcto de la tabla.
+
+// HashTable.prototype.get = function(clave) {
+//   let hash = this.hash(clave);
+//   var i = this.bucket[Symbol.iterator]();
+//   let index = 1;
+//   while ((i.next().value)[0] !== (hash).toString()) {
+//     ++index
+//   }
+//   var i = this.bucket[Symbol.iterator]();
+//   while (index > 1) {
+//     (i.next().value)[1]
+//     --index;
+//   }
+//   return (i.next().value)[1][clave]
+// }
 
 HashTable.prototype.get = function(clave) {
   let hash = this.hash(clave);
@@ -135,7 +180,7 @@ HashTable.prototype.get = function(clave) {
     (i.next().value)[1]
     --index;
   }
-  return (i.next().value)[1]
+  return (i.next().value)[1][clave]
 }
 
 // - hasKey: recibe una clave por parámetro y consulta si ya hay algo almacenado en la tabla con esa clave (retorna un booleano).
