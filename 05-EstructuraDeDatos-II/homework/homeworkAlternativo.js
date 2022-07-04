@@ -97,8 +97,9 @@ La clase debe tener los siguientes métodos:
 Ejemplo: supongamos que quiero guardar {instructora: 'Ani'} en la tabla. Primero puedo chequear, con hasKey, si ya hay algo en la tabla con el nombre 'instructora'; luego, invocando set('instructora', 'Ani'), se almacenará el par clave-valor en un bucket específico (determinado al hashear la clave)
 */
 
-function HashTable(bucket) {
-  this.bucket = {};
+function HashTable() {
+  let set;
+  this.bucket = set = new Set();
   this.numBuckets = 35;
 }
 
@@ -115,19 +116,26 @@ HashTable.prototype.hash = function(string) {
 // - set: recibe el conjunto clave valor (como dos parámetros distintos), hashea la clave invocando al método hash, y almacena todo el conjunto en el bucket correcto.
 
 HashTable.prototype.set = function(clave, valor) {
-  if (typeof clave !== 'string') throw new TypeError('Keys must be strings')
-  let hash = this.hash(clave);
-  if (this.bucket[hash] === undefined) {
-    this.bucket[hash] = {};
-  }
-  this.bucket[hash][clave] = valor;
+  if (typeof clave !== 'string') throw new TypeError('Keys must be strings');
+  let hash = [(this.hash(clave)).toString(), valor]
+  this.bucket.add(hash)
 }
 
 // - get: recibe una clave por parámetro, y busca el valor que le corresponde en el bucket correcto de la tabla.
 
 HashTable.prototype.get = function(clave) {
   let hash = this.hash(clave);
-  return this.bucket[hash][clave];
+  var i = this.bucket[Symbol.iterator]();
+  let index = 1;
+  while ((i.next().value)[0] !== (hash).toString()) {
+    ++index
+  }
+  var i = this.bucket[Symbol.iterator]();
+  while (index > 1) {
+    (i.next().value)[1]
+    --index;
+  }
+  return (i.next().value)[1]
 }
 
 // - hasKey: recibe una clave por parámetro y consulta si ya hay algo almacenado en la tabla con esa clave (retorna un booleano).
