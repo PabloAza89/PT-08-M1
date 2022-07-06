@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "jest --collectCoverage=false DataStructureIII.test.js",
+    "test": "jest --collectCoverage=false ExtraCredit.test.js",
+    
     "grade": "jest --useStderr --json --outputFile=./tests/result.json"
   },
   "devDependencies": {
     "jest": "^27.5.1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+
+  "_comment": "jest --collectCoverage=false DataStructureIII.test.js"
 }

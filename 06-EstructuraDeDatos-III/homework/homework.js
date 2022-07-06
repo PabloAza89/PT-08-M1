@@ -98,15 +98,15 @@ BinarySearchTree.prototype.breadthFirstForEach = function(cb, array) {
   }
   cb(this.value)
   if (array.length > 0) {
-    array.shift().breadthFirstForEach(cb, array);
+    return array.shift().breadthFirstForEach(cb, array);
   }
 }
 
 BinarySearchTree.prototype.size = function() {
   if (!this.left && !this.right) return 1;
   else if (this.left && this.right) return 1 + this.left.size() + this.right.size();
-  else if (this.left) return 1 + this.left.size();
-  else if (this.right) return 1 + this.right.size();
+  else if (this.left && !this.rigth) return 1 + this.left.size();
+  else if (this.right && !this.left) return 1 + this.right.size();
 }
 
 // No modifiquen nada debajo de esta linea
