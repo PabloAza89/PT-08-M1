@@ -33,45 +33,80 @@ BinarySearchTree.prototype.insert = function(newNum) {
         this.left.insert(newNum);
       }
     }
-
-    
   }
-  return 'Successfully inserted';
+}
+
+
+BinarySearchTree.prototype.contains = function(toSearch) {
+  if (toSearch === this.value) return true;
+  if (toSearch > this.value) {
+    if (!this.right) {
+      return false;
+    } else {
+      return this.right.contains(toSearch);  
+    }
+  } else {
+    if (!this.left) {
+      return false;
+    } else {
+      return this.left.contains(toSearch);
+    }    
+  }
+}
+
+
+
+BinarySearchTree.prototype.depthFirstForEach = function(cb, recorrido) {
+	if (recorrido === "pre-order") {
+    cb(this.value);
+    if (this.left) {
+      this.left.depthFirstForEach(cb, recorrido)
+    }    
+    if (this.right) {
+      this.right.depthFirstForEach(cb, recorrido)
+    }
+  } else if (recorrido === "post-order") {
+    if (this.left) {
+      this.left.depthFirstForEach(cb, recorrido);
+    }
+    if (this.right) {
+      this.right.depthFirstForEach(cb, recorrido);
+    }
+    cb(this.value)
+  } else {
+    if (this.left) {
+      this.left.depthFirstForEach(cb, recorrido);
+    }
+    cb(this.value)
+    if (this.right) {
+      this.right.depthFirstForEach(cb, recorrido);
+    }        
+  }
+
+}
+
+BinarySearchTree.prototype.breadthFirstForEach = function(cb, array) {
+  if (!array) {
+    var array = [];
+  }
+
+  if (this.left) {
+    array.push(this.left)
+  }
+  if (this.right) {
+    array.push(this.right)
+  }
+  cb(this.value)
+  if (array.length > 0) {
+    array.shift().breadthFirstForEach(cb, array);
+  }
 }
 
 BinarySearchTree.prototype.size = function() {
-  let nodeRight = this.right;
-  let nodeLeft = this.left;
-  let currentVal = this.value;
-  let set = new Set();
-  if (!nodeRight && !nodeLeft && !set.has(currentVal)) {
-    set.add(currentVal)
-    return set.size;
-  }
-  while (nodeRight.right && !set.has(nodeRight.value)) {
-    nodeRight = nodeRight.right;
-  }
-}
-
-let qq = new BinarySearchTree(20)
-console.log(qq.size())
-console.log(qq)
-console.log(qq.insert(15))
-console.log(qq.insert(25))
-console.log(qq.insert(10))
-console.log(qq)
-
-
-BinarySearchTree.prototype.contains = function() {
-
-}
-
-BinarySearchTree.prototype.depthFirstForEach = function() {
-
-}
-
-BinarySearchTree.prototype.breadthFirstForEach = function() {
-
+  if (!this.left && !this.right) return 1;
+  else if (this.left && this.right) return 1 + this.left.size() + this.right.size();
+  else if (this.left) return 1 + this.left.size();
+  else if (this.right) return 1 + this.right.size();
 }
 
 // No modifiquen nada debajo de esta linea
