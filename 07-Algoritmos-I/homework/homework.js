@@ -51,7 +51,8 @@ function bubbleSort(array) {
 
 }
 
-console.log(bubbleSort([5, 1, 4, 2, 8]))
+//console.log(bubbleSort([5, 1, 4, 2, 8]))
+//console.log(bubbleSort([11, 0, 3, 1, 7, 12, 4, 6, 24, 2, 8, 5, 9]))
 
 
 function insertionSort(array) {
