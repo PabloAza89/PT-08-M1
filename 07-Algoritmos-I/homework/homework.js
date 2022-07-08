@@ -9,17 +9,30 @@ function factorear(num) {
   // los factores por los cuales se va dividiendo a dicho número (De menor a mayor)
   // Ej: factorear(180) --> [1, 2, 2, 3, 3, 5] Ya que 1x2x2x3x3x5 = 180 y son todos números primos
   // Tu código:
-  let number = num;
+  // let number = num;
+  // let array = [1];
+  // let i = 2
+  // do {
+  //   if (number % i === 0) {
+  //    array.push(i)
+  //    number = number / i
+  //   } else {
+  //    i++
+  //   }
+  // } while (number >= i)
+       
+  // return array;
+  
   let array = [1];
   let i = 2
   do {
-    if (number % i === 0) {
+    if (num % i === 0) {
      array.push(i)
-     number = number / i
+     num = num / i
     } else {
      i++
     }
-  } while (number >= i)
+  } while (num >= i)
        
   return array;
 }
@@ -97,10 +110,38 @@ function selectionSort(array) {
   // el array recibido como parámetro utilizando dos arreglos
   // Devolver el array ordenado resultante
   // Tu código:
-
+  let firstValueToSwap = array[0];
+  let firstIndexToSwap;
+  let secondValueToSwap = array[1];
+  let secondIndexToSwap;
+  for (let i = 0 ; i < array.length ; i++) {
+    if (array[i] > array[i + 1]) {
+      firstValueToSwap = array[i];
+      firstIndexToSwap = i;
+      secondValueToSwap = array[i + 1];
+      secondIndexToSwap = i + 1;
+      for (let j = i + 1; j < array.length ; j++) {
+        if (secondValueToSwap > array[j]) {
+          secondValueToSwap = array[j]
+          secondIndexToSwap = j;
+        } 
+        //console.log(target)
+      }
+    }
+    console.log(firstIndexToSwap)
+    console.log(firstValueToSwap)
+    console.log(secondIndexToSwap)
+    console.log(secondValueToSwap)
+    
+    array.splice(firstIndexToSwap, 1, secondValueToSwap)
+    array.splice(secondIndexToSwap, 1, firstValueToSwap)
+    //array.splice(secondTargetIndex)
+  }
+  return array
 }
 
-
+console.log(selectionSort([10, 10, 16, 12]))
+//                        [5, 1, 4, 2, 8]    // target = 1
 // No modificar nada debajo de esta línea
 // --------------------------------
 
