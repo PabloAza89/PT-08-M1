@@ -110,12 +110,12 @@ function selectionSort(array) {
   // el array recibido como parámetro utilizando dos arreglos
   // Devolver el array ordenado resultante
   // Tu código:
-  let firstValueToSwap = array[0];
+  let firstValueToSwap;
   let firstIndexToSwap;
-  let secondValueToSwap = array[1];
+  let secondValueToSwap;
   let secondIndexToSwap;
   for (let i = 0 ; i < array.length ; i++) {
-    if (array[i] > array[i + 1]) {
+    if (array[i] >= array[i + 1]) {
       firstValueToSwap = array[i];
       firstIndexToSwap = i;
       secondValueToSwap = array[i + 1];
@@ -133,8 +133,9 @@ function selectionSort(array) {
     console.log(secondIndexToSwap)
     console.log(secondValueToSwap)
     
-    array.splice(firstIndexToSwap, 1, secondValueToSwap)
     array.splice(secondIndexToSwap, 1, firstValueToSwap)
+    array.splice(firstIndexToSwap, 1, secondValueToSwap)
+    
     //array.splice(secondTargetIndex)
   }
   return array
