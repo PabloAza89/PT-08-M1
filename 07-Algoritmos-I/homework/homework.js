@@ -1,6 +1,6 @@
 'use strict'
 
-const { arrayReplaceAt } = require("markdown-it/lib/common/utils");
+//const { arrayReplaceAt } = require("markdown-it/lib/common/utils");
 
 // No cambies los nombres de las funciones.
 
@@ -46,6 +46,9 @@ function bubbleSort(array) {
   // return array.sort(function(a,b) {
   //   return a - b;
   // })
+  // return array.sort((a,b) => {
+  //   return a - b;
+  // })
   // [10, -2, -7, 4] => [-7, -2, 4, 10]
   // [-2, -7, 4, 10]
 
@@ -53,21 +56,48 @@ function bubbleSort(array) {
   // [5, 1, 4, 2, 8]
   // [1, 4, 2, 5, 8]
 
-  for (let j = 0 ; j < array.length ; j++) {
-    for (let i = 0 ; i < array.length ; i++) {
-      if (array[i] > array[i + 1]) {
-        let toMove = array[i]
-        array.splice(i, 1);
-        array.splice(i + 1, 0, toMove);
-      }
-    }
-  }
+  // for (let j = 0 ; j < array.length ; j++) {
+  //   for (let i = 0 ; i < array.length ; i++) {
+  //     if (array[i] > array[i + 1]) {
+  //       let toMove = array[i]
+  //       array.splice(i, 1);
+  //       array.splice(i + 1, 0, toMove);
+  //     }
+  //   }
+  // }
   
-  return array;
+  // return array;
 
+  // [5, 1, 4, 2, 8] => [1, 2, 4, 5, 8]
+  // [5, 1, 4, 2, 8]
+  // [1, 4, 2, 5, 8]
+
+  let toMove;
+  let i = 0;
+  let lap = 0;
+  
+  do {
+    if (i < array.length) {
+      if (array[i] > array[i + 1]) {
+        toMove = array[i]
+        array.splice(i, 1)
+        array.splice(i + 1, 0, toMove)
+        i++
+        lap++
+      } else {
+        i++
+        lap++
+      }
+    } else {
+      i = 0
+    }
+  //} while (array[0] > array[1] || array[1] > array[2] || array[2] > array[3] || array[3] > array[4] )
+  //} while (array[i - 4] > array[i - 3] || array[i - 3] > array[i - 2] ||array[i - 2] > array[i - 1] || array[i - 1] > array[i] || array[i] > array[i + 1] || array[i + 1] > array[i + 2] || array[i + 2] > array[i + 3])
+  } while (lap < (array.length * array.length))
+  return array
 }
 
-//console.log(bubbleSort([5, 1, 4, 2, 8]))
+console.log(bubbleSort([5, 1, 4, 2, 8]))
 //console.log(bubbleSort([11, 0, 3, 1, 7, 12, 4, 6, 24, 2, 8, 5, 9]))
 
   // [5, 1, 4, 2, 8] => [1, 2, 4, 5, 8]
@@ -80,7 +110,7 @@ function insertionSort(array) {
   // Devolver el array ordenado resultante
   // Tu código:
   for (let i = 0 ; i < array.length ; i++) {
-    if (array[i + 1] < array[i]) { // i = 0
+    if (array[i] > array[i + 1]) { // i = 0
       let toMove = array[i + 1]
       array.splice(i + 1, 1)
       //console.log(i) // 0
@@ -88,7 +118,7 @@ function insertionSort(array) {
       //console.log(array) // [5, 4, 2, 8]
       for (let j = i; j >= 0 ; j--) {
         //console.log(array[j-1])
-        if (toMove < array[j] && array[j -1] === undefined || toMove < array[j] && array[j - 1] < toMove)  {
+        if (toMove < array[j] && array[j - 1] === undefined || toMove < array[j] && array[j - 1] < toMove)  {
           array.splice(j, 0, toMove)
         }
       }
