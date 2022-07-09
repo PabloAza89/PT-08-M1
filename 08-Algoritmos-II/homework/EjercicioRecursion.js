@@ -41,3 +41,26 @@ function reverseString(string, reversed = []) {
 }
 
 console.log(reverseString('freeCodeCamp'))
+
+//////////////////////////////////////////////////////////
+
+// Escribe un programa que devuelva el número de veces que aparece una letra en una cadena.
+// Tu programa debería recibir una cadena y la letra.
+// let programa = (cadena, letra) => {...}
+// Después, debe devolver el número de veces que la letra aparece en la cadena. 
+// Dado el texto "JavaScript" y la letra  "a", su programa debe devolver 2.‌‌‌‌
+
+function numOfVowels(string, letter, counter = 0) {
+    if (string.length === 0) {
+        return counter
+    } else {
+        if (string[0] === letter) {
+            ++counter
+            return numOfVowels(string.slice(1), letter, counter)
+        } else {
+            return numOfVowels(string.slice(1), letter, counter)
+        }
+    }
+}
+
+console.log(numOfVowels('JavaScript', 'a'));
