@@ -31,7 +31,7 @@ function quickSort(array, left = [], equal = [], right = []) {
   return left.concat(equal).concat(right);
 }
 
-console.log(quickSort([5, 1, 4, 2, 8]))
+//console.log(quickSort([5, 1, 4, 2, 8]))
 //console.log(quickSort([5, 1, 4]))
 
 function mergeSort(array) {
