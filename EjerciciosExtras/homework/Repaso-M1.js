@@ -16,9 +16,25 @@ const {
 
 var countArray = function(array) {
     // Tu código aca:
-    
+    counter = 0;
+
+    for (let i = 0 ; i < array.length ; i++) {
+        if (!Array.isArray(array[i])) {
+            counter += array[i];
+        } else {
+            counter += countArray(array[i])
+        }
+    }
+    return counter;        
 }
 
+// [1,1,1,1,1,1,1,1,1,1] >>> (10)
+// [1, [2, [3,4]], [5,6], 7] >>> (28)
+// [1, [2, [3,[4,4,4]]], [5,6], 7] >>> (36)
+
+console.log(countArray([1,1,1,1,1,1,1,1,1,1]))
+console.log(countArray([1, [2, [3,4]], [5,6], 7]))
+console.log(countArray([1, [2, [3,[4,4,4]]], [5,6], 7]))
 
 // Implementar la función countProps: a partir de un objeto en el cual cada propiedad puede contener
 // cualquier tipo de dato, determinar la cantidad de propiedades de objetos en cualquier nivel, ya sea el inicial
@@ -37,11 +53,34 @@ var countArray = function(array) {
 // dentro de a tenemos 3 propiedades mas, luego a3 tiene otras 3 y por ultimo c tiene una extra.
 // Propiedades: a, a1, a2, a3, f, a, c, o, b, c --> 10 en total
 
-var countProps = function(obj) {
-    // Tu código aca:
+//// HELPER ////
 
+const objeto = {
+    a: {
+        a1: 10,
+        a2: 'Franco',
+        a3: {f: 'r', a: 'n', c: {o: true}}
+    },
+    b: 2,
+    c: [1, {a: 1}, 'Franco']
+    }
+
+//// HELPER ////   
+
+var countProps = function(obj) {
+    var counter = 0;
+    for (let key in obj) {
+        if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+            counter = ++counter + countProps(obj[key])
+        } else {
+            ++counter
+        }
+        
+    }
+    return counter
 }
 
+console.log(countProps(objeto));
 
 // Implementar el método changeNotNumbers dentro del prototype de LinkedList que deberá cambiar
 // aquellos valores que no puedan castearse a numeros por 'Kiricocho' y devolver la cantidad de cambios que hizo
@@ -53,7 +92,7 @@ var countProps = function(obj) {
 
 LinkedList.prototype.changeNotNumbers = function(){
     // Tu código aca:
-
+ 
 }
 
 

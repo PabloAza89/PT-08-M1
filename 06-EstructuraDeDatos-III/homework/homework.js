@@ -54,6 +54,10 @@ BinarySearchTree.prototype.contains = function(toSearch) {
   }
 }
 
+// DFS -> DEPTH FIRST SEARCH - PRE-ORDER  ->  node > left > right
+// DFS -> DEPTH FIRST SEARCH - POST-ORDER ->  left > right > node
+// DFS -> DEPTH FIRST SEARCH - IN-ORDER   ->  left > node > right
+// BFS -> BREADTH FIRST SEARCH            ->  all left + right (by levels)
 
 
 BinarySearchTree.prototype.depthFirstForEach = function(cb, recorrido) {
@@ -82,7 +86,6 @@ BinarySearchTree.prototype.depthFirstForEach = function(cb, recorrido) {
       this.right.depthFirstForEach(cb, recorrido);
     }        
   }
-
 }
 
 BinarySearchTree.prototype.breadthFirstForEach = function(cb, array) {

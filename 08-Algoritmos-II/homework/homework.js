@@ -40,7 +40,7 @@ function mergeSort(array) {
   // Devolver el array ordenado resultante
   // Tu código:
  
-  if (array.length <= 1) return array;
+  if (array.length === 1) return array;
 
   let pointer = Math.floor((array.length - 1) / 2);
   let left = [];
@@ -53,10 +53,8 @@ function mergeSort(array) {
       right.push(array[i])
     }
   }
-  return merge(mergeSort(left), mergeSort(right))
-} 
-  
-function merge(left, right) {
+
+  function merge(left, right) {
     let result = []
     let i = 0;
     let j = 0;
@@ -71,12 +69,13 @@ function merge(left, right) {
       }
     }
     return result.concat(left.slice(i)).concat(right.slice(j))
-}  
-  
+  }
 
-
+  return merge(mergeSort(left), mergeSort(right))
+}
 
 console.log(mergeSort([9, 2, 4, 5, 1, 8]))
+//console.log(mergeSort([8, 1]))
 
 // function prueba() {
 //   //let pointer = Math.floor((array.length - 1) / 2);
@@ -98,7 +97,6 @@ console.log(mergeSort([9, 2, 4, 5, 1, 8]))
 //     }
 //   }
 //   return result
-
 // }
 
 // console.log(prueba());
