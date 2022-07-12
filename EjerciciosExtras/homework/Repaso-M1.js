@@ -90,9 +90,48 @@ console.log(countProps(objeto));
 //    lista.changeNotNumbers();
 //    Ahora la lista quedaría: Head --> [1] --> ['2'] --> [false] --> ['Kirikocho] y la función debería haber devuelto el valor 1
 
+
+// search('2') .toBe('2') **
+// search(3) .toBe(3) **
+// search(false) .toBe(false) **
+
+// search('Franco') .toBe(null)
+// search('uno') .toBe(null)
+// search('cuatro') .toBe(null)
+// search('cinco') .toBe(null)
+
+// search('Kiricocho') .toBe('Kiricocho')
+// search('Kiricocho') .toBe('Kiricocho')
+
 LinkedList.prototype.changeNotNumbers = function(){
     // Tu código aca:
- 
+    
+    let counter = 0;
+    let current = this.head;
+
+    if (!current) return counter;
+    if (!current.next) {
+        if (Number.isInteger(Math.floor(parseInt(current.value, 10) / 2)) || current.value === false || current.value === true) {
+            return 0;
+        } else {
+            current = null;
+            return 1;
+        }
+    }
+
+    while (current.next) {
+        if (Number.isInteger(Math.floor(parseInt(current.next.value, 10) / 2)) || current.next.value === false || current.next.value === true) {
+            current = current.next;
+        } else {
+            counter++
+            //current.value = current.next.value
+            current = current.next.value;
+        }
+    }
+    
+    this.add('Kiricocho');
+    return counter;
+
 }
 
 
