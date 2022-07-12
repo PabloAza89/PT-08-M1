@@ -109,8 +109,11 @@ LinkedList.prototype.changeNotNumbers = function(){
     let counter = 0;
     let current = this.head;
 
-    if (!current) return counter;
-    if (!current.next) {
+    if (current === null) return 0;
+
+    ///////////////////////////
+
+    if (current.next === null) {
         if (Number.isInteger(Math.floor(parseInt(current.value, 10) / 2)) || current.value === false || current.value === true) {
             return 0;
         } else {
@@ -118,22 +121,33 @@ LinkedList.prototype.changeNotNumbers = function(){
             return 1;
         }
     }
-
-    while (current.next) {
-        if (Number.isInteger(Math.floor(parseInt(current.next.value, 10) / 2)) || current.next.value === false || current.next.value === true) {
-            current = current.next;
+    
+    ///////////////////////////
+    
+    while (current.next !== null) {
+        if (Number.isInteger(Math.floor(parseInt(current.value, 10) / 2)) || current.value === false || current.value === true) {
+            current = current.next
         } else {
-            counter++
-            //current.value = current.next.value
-            current = current.next.value;
+            current.value = null;
+            current = current.next            
+            ++counter;
         }
     }
+
+    if (current.next === null) {
+        if (Number.isInteger(Math.floor(parseInt(current.value, 10) / 2)) || current.value === false || current.value === true) {
+            return counter;
+        } else {
+            current.value = null
+            ++counter
+            return counter;
+        }
+    }
+
     
-    this.add('Kiricocho');
+    LinkedList.add('Kiricocho') 
     return counter;
-
 }
-
 
 // Implementar la función mergeQueues que a partir de dos queues recibidas por parametro
 // debe devolver una nueva Queue que vaya mergeando los nodos de las anteriores.
