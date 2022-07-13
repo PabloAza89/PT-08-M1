@@ -204,9 +204,31 @@ var closureMult = function(multiplier) {
 
 // Implementar el método sum dentro del prototype de BinarySearchTree
 // que debe retornar la suma total de los valores dentro de cada nodo del arbol
+
+// var bst = new BinarySearchTree(15);
+// bst.insert(10);
+// bst.insert(17);
+// bst.insert(5);
+// bst.insert(7);
+// bst.insert(3);
+// bst.insert(25);
+// expect .toBe(82)
+
+// var bst = new BinarySearchTree(10);
+// bst.insert(10);
+// bst.insert(10);
+// bst.insert(10);
+// bst.insert(10);
+// bst.insert(10);
+// expect .toBe(60)
+
 BinarySearchTree.prototype.sum = function() {
     // Tu código aca:
 
+    if (!this.left && !this.right) return this.value;
+    else if (this.left && this.right) return this.value + this.left.sum() + this.right.sum();
+    else if (this.left && !this.rigth) return this.value + this.left.sum();
+    else if (this.right && !this.left) return this.value + this.right.sum();
 }
 
 module.exports = {
