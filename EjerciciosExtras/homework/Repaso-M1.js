@@ -5,6 +5,8 @@ const {
     BinarySearchTree
 } = require('./DS.js')
 
+
+
 // Implementar la función countArray: a partir de un array en el cual cada posición puede ser un único
 // número u otro array anidado de números, determinar la suma de todos los números contenidos en el array.
 // El array será recibido por parámetro.
@@ -32,9 +34,9 @@ var countArray = function(array) {
 // [1, [2, [3,4]], [5,6], 7] >>> (28)
 // [1, [2, [3,[4,4,4]]], [5,6], 7] >>> (36)
 
-console.log(countArray([1,1,1,1,1,1,1,1,1,1]))
-console.log(countArray([1, [2, [3,4]], [5,6], 7]))
-console.log(countArray([1, [2, [3,[4,4,4]]], [5,6], 7]))
+// console.log(countArray([1,1,1,1,1,1,1,1,1,1]))
+// console.log(countArray([1, [2, [3,4]], [5,6], 7]))
+// console.log(countArray([1, [2, [3,[4,4,4]]], [5,6], 7]))
 
 // Implementar la función countProps: a partir de un objeto en el cual cada propiedad puede contener
 // cualquier tipo de dato, determinar la cantidad de propiedades de objetos en cualquier nivel, ya sea el inicial
@@ -128,7 +130,7 @@ LinkedList.prototype.changeNotNumbers = function(){
         if (Number.isInteger(Math.floor(parseInt(current.value, 10) / 2)) || current.value === false || current.value === true) {
             current = current.next
         } else {
-            current.value = null;
+            current.value = 'Kiricocho';
             current = current.next            
             ++counter;
         }
@@ -138,14 +140,12 @@ LinkedList.prototype.changeNotNumbers = function(){
         if (Number.isInteger(Math.floor(parseInt(current.value, 10) / 2)) || current.value === false || current.value === true) {
             return counter;
         } else {
-            current.value = null
+            current.value = 'Kiricocho';
             ++counter
             return counter;
         }
     }
 
-    
-    LinkedList.add('Kiricocho') 
     return counter;
 }
 
@@ -157,11 +157,30 @@ LinkedList.prototype.changeNotNumbers = function(){
 // mergeQueues(queueOne, queueTwo) --> [7,2,3,4,5,6]
 // IMPORTANTE: NO son arreglos sino que son Queues.
 
+//   [1, 3, 5, 7, 9]    [2, 4, 6]
+//     [1, 2, 3, 4, 5, 6, 7, 9]
+
 var mergeQueues = function(queueOne, queueTwo) {
     // Tu código aca:
+    var newQueue = new Queue(mergeQueues);
+    // newQueue.enqueue(1);
+    // newQueue.enqueue(2);
+    // newQueue.enqueue(3);
+    // newQueue.enqueue(4);
+    // newQueue.enqueue(5);
+    // newQueue.enqueue(6);
+    // newQueue.enqueue(7);
+    // newQueue.enqueue(9);
+    
+    while (queueOne.size() > 0) {
+        newQueue.enqueue(queueOne.dequeue());
+        if (queueTwo.size() > 0) {
+            newQueue.enqueue(queueTwo.dequeue());
+        }
+    }
 
+    return newQueue;
 }
-
 
 // Implementar la funcion closureMult que permita generar nuevas funciones que representen
 // las tablas de multiplicación de distintos numeros
