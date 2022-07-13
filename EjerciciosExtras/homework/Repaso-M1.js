@@ -163,14 +163,6 @@ LinkedList.prototype.changeNotNumbers = function(){
 var mergeQueues = function(queueOne, queueTwo) {
     // Tu código aca:
     var newQueue = new Queue(mergeQueues);
-    // newQueue.enqueue(1);
-    // newQueue.enqueue(2);
-    // newQueue.enqueue(3);
-    // newQueue.enqueue(4);
-    // newQueue.enqueue(5);
-    // newQueue.enqueue(6);
-    // newQueue.enqueue(7);
-    // newQueue.enqueue(9);
     
     while (queueOne.size() > 0) {
         newQueue.enqueue(queueOne.dequeue());
@@ -191,9 +183,23 @@ var mergeQueues = function(queueOne, queueTwo) {
 // - var multBySix = closureMult(6);
 // - multBySix(4) --> 24
 
+// let multByFour = closureMult(4);
+//     multByFour(2) .toBe(8);
+//     multByFour(5) .toBe(20);
+//     multByFour(6) .toBe(24);
+//     multByFour(10) .toBe(40);
+
+// let multByFour = closureMult(9);
+//     multByFour(2) .toBe(18);
+//     multByFour(5) .toBe(45);
+//     multByFour(6) .toBe(54);
+//     multByFour(10) .toBe(90);
+
 var closureMult = function(multiplier) {
     // Tu código aca:
-
+    return (otherVal) => {
+        return otherVal * multiplier;
+    }
 }
 
 // Implementar el método sum dentro del prototype de BinarySearchTree
