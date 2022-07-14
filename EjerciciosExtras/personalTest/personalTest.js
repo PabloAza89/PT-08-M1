@@ -69,6 +69,7 @@ LinkedList.prototype.search = function(arg) {
 // Ejemplo: Head --> [2] --> [5] --> [1] --> [5] --> [7] --> [2] --> null
 //          Head --> [2] --> [5] --> [1] --> [7] --> null
 // Aclaración: se debe reemplazar la lista original por la nueva;
+// Pista: se puede reutilizar el metodo search..
 
 var newList = new LinkedList();
 newList.add(2)
@@ -78,18 +79,31 @@ newList.add(5)
 newList.add(7)
 newList.add(2)
 
-
-
-
-
-
-
-
-
-
 console.log(newList)
 
 LinkedList.prototype.simplifyList = function() {
-
+	if (this.head === null) return false;
+	let arr = [];
+	let verifyArr = [];
+	while (this.head !== null) {
+		arr.unshift(this.remove());		
+	}
+	let i = 0;
+	while (i < arr.length) {
+		if (!verifyArr.includes(arr[i])) {
+			verifyArr.push(arr[i])
+			i++
+		} else {
+			i++
+			}
+	}
+	let j = 0;
+	while (j < verifyArr.length) {
+		this.add(verifyArr[j])
+		j++
+	}
+  return 'Done.'
 }
 
+console.log(newList.simplifyList())
+console.log(newList)
